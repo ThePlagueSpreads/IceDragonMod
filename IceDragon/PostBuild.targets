@@ -5,7 +5,7 @@
     <ItemGroup>
         <LocalizationFiles Include="Localization/*.json"/>
         <StructureFiles Include="Structures/*.structure"/>
-        <AssetFiles Include="$(..\IceDragonAssets\AssetBundles\StandaloneWindows\*"/>
+        <AssetFiles Include="..\..\IceDragonAssets\AssetBundles\StandaloneWindows64\*"/>
     </ItemGroup>
     <Target Condition="Exists('..\TargetDirectories.targets')" Name="CopyToBepInEx" AfterTargets="Build">
         <MakeDir Directories="$(ModDir)"/>
@@ -19,6 +19,7 @@
 
     </Target>
     <Target Condition="Exists('..\TargetDirectories.targets')" Name="CopyAssets" AfterTargets="Build">
+        <MakeDir Directories="$(ModDir)\Assets"/>
         <Copy SourceFiles="@(AssetFiles)" DestinationFolder="$(ModDir)\Assets"/>
     </Target>
 </Project>
