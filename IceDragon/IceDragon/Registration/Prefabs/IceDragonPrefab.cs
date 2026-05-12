@@ -1,0 +1,94 @@
+using System.Collections;
+using ECCLibrary;
+using ECCLibrary.Data;
+using IceDragon.MaterialModifiers;
+using IceDragon.MonoBehaviours;
+using Nautilus.Assets;
+using Nautilus.Extensions;
+using Nautilus.Utility;
+using UnityEngine;
+
+namespace IceDragon.Registration.Prefabs;
+
+public class IceDragonPrefab : CreatureAsset
+{
+    private const float SwimVelocity = 16f;
+    private const float ChaseVelocity = 19f;
+    private const float MaxVelocity = 22f;
+    
+    private const float SwimPriority = 0.3f;
+    private const float AvoidObstaclesPriority = 0.4f;
+    private const float AvoidTerrainPriority = 0.9f;
+    private const float StayAtLeashPriority = 0.9f;
+    private const float FleePriority = 0.35f;
+
+    public IceDragonPrefab() : base(PrefabInfo.WithTechType("IceDragon"))
+    {
+    }
+
+    protected override CreatureTemplate CreateTemplate()
+    {
+        var template = new CreatureTemplate(() => ModRegistration.Assets.LoadAsset<GameObject>("IceDragonPrefab"),
+            BehaviourType.Leviathan, EcoTargetType.Leviathan, 8_000)
+        {
+            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(30, 2, 30), 3, 1.2f, true),
+            SwimBehaviourData = new SwimBehaviourData(0.2f),
+            LocomotionData = new LocomotionData(12f, 0.02f, 1, 0.1f, true),
+            Mass = 3500,
+            AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
+            AvoidObstaclesData = new AvoidObstaclesData(AvoidObstaclesPriority, 6f, false, 20f, 20f, scanInterval: 0.2f),
+            AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity),
+            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 100),
+            FleeOnDamageData = new FleeOnDamageData(FleePriority, SwimVelocity, 400f),
+            EyeFOV = -0.9f,
+            BioReactorCharge = 10000,
+            CellLevel = LargeWorldEntity.CellLevel.Far,
+            RespawnData = new RespawnData(false),
+            CanBeInfected = false,
+            BehaviourLODData = new BehaviourLODData(1000, 2000, 5000)
+        };
+        return template;
+    }
+
+    protected override IEnumerator ModifyPrefab(GameObject prefab, CreatureComponents components)
+    {
+        var tailRoot = prefab.transform.SearchChild("Tail");
+        var tailTrailManager = new TrailManagerBuilder(components, tailRoot, 2f);
+        tailTrailManager.SetTrailArrayToChildrenWithCondition(t => t.name.ToLower().StartsWith("tail"));
+        tailTrailManager.Apply();
+        
+        components.Rigidbody.angularDrag = 0.05f;
+        components.WorldForces.underwaterDrag = 0.05f;
+
+        var modifier = prefab.AddComponent<DamageModifier>();
+        modifier.damageType = DamageType.Cold;
+        modifier.multiplier = 0f;
+        
+        if (Plugin.RedPlagueInstalled)
+        {
+            var infectedMixin = prefab.AddComponent<InfectedMixin>();
+            infectedMixin.renderers = prefab.GetComponentsInChildren<Renderer>(true);
+        }
+
+        var eyeAnimation = prefab.AddComponent<EyeTracking>();
+        eyeAnimation.maxDistance = 20;
+        eyeAnimation.degreesPerSecond = 180;
+        eyeAnimation.dotLimit = 0.2f;
+        eyeAnimation.useLimits = true;
+        var head = prefab.transform.SearchChild("Head");
+        eyeAnimation.eyes =
+        [
+            head.Find("Eye.L"),
+            head.Find("Eye.L.001"),
+            head.Find("Eye.R"),
+            head.Find("Eye.R.001")
+        ];
+        
+        yield return null;
+    }
+
+    protected override void ApplyMaterials(GameObject prefab)
+    {
+        MaterialUtils.ApplySNShaders(prefab, 4, 5, 1f, new IceDragonMaterialModifier());
+    }
+}

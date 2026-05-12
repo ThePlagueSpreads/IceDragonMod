@@ -1,5 +1,6 @@
 using System.Collections;
 using System.IO;
+using IceDragon.Registration.Prefabs;
 using Nautilus.Handlers;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public static class ModRegistration
     
     public static AssetBundle Assets { get; private set; }
     
-    internal static IEnumerator LoadAssetBundlesAsync(WaitScreenHandler.WaitScreenTask task)
+    internal static IEnumerator LoadModAsync(WaitScreenHandler.WaitScreenTask task)
     {
         string path = GetAssetBundlePath(ASSET_BUNDLE_FILE_NAME);
         AssetBundleCreateRequest assetBundleTask = AssetBundle.LoadFromFileAsync(path);
@@ -21,6 +22,10 @@ public static class ModRegistration
             task.Status = $"Assets ({assetBundleTask.progress:P1})";
             yield return null;
         }
+
+        Assets = assetBundleTask.assetBundle;
+        
+        new IceDragonPrefab().Register();
     }
     
     private static string GetAssetBundlePath(string assetBundleFileName) => 

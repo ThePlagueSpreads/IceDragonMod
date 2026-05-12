@@ -16,18 +16,20 @@ public class Plugin : BaseUnityPlugin
 {
     public new static ManualLogSource Logger { get; private set; }
     public static Assembly Assembly { get; } = Assembly.GetExecutingAssembly();
+    internal static bool RedPlagueInstalled { get; private set; }
 
     private void Awake()
     {
         Logger = base.Logger;
         
         LanguageHandler.RegisterLocalizationFolder();
+        RedPlagueInstalled = BepInEx.Bootstrap.Chainloader.PluginInfos.ContainsKey("com.lee23.theredplague");
         
         Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
         Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         
         StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Assembly));
         
-        WaitScreenHandler.RegisterEarlyAsyncLoadTask(PluginInfo.PLUGIN_NAME, ModRegistration.LoadAssetBundlesAsync, "LoadMainBundleAsync");
+        WaitScreenHandler.RegisterEarlyAsyncLoadTask(PluginInfo.PLUGIN_NAME, ModRegistration.LoadModAsync, "LoadMainBundleAsync");
     }
 }
