@@ -6,11 +6,11 @@ using UnityEngine;
 namespace IceDragon;
 
 
-public static class AssetBundles
+public static class ModRegistration
 {
     private const string ASSET_BUNDLE_FILE_NAME = "icedragonassets";
     
-    public static AssetBundle assets { get; private set; }
+    public static AssetBundle Assets { get; private set; }
     
     internal static IEnumerator LoadAssetBundlesAsync(WaitScreenHandler.WaitScreenTask task)
     {

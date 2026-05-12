@@ -28,6 +28,6 @@ public class Plugin : BaseUnityPlugin
         
         StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Assembly));
         
-        WaitScreenHandler.RegisterEarlyAsyncLoadTask(PluginInfo.PLUGIN_NAME, AssetBundles.LoadAssetBundlesAsync, "LoadMainBundleAsync");
+        WaitScreenHandler.RegisterEarlyAsyncLoadTask(PluginInfo.PLUGIN_NAME, ModRegistration.LoadAssetBundlesAsync, "LoadMainBundleAsync");
     }
 }
