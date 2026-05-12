@@ -1,0 +1,1132 @@
+{
+  "Entities": [
+    {
+      "classId": "Kallies_GlacialRock_2_Opaque",
+      "id": "7eb07ce7-79d2-4c8d-b87f-cd20e40bb1c2",
+      "position": {
+        "x": -309.020721,
+        "y": -0.6532383,
+        "z": 1065.86011
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 3.33892727,
+        "y": 3.33892727,
+        "z": 3.33892727
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_3_Opaque",
+      "id": "87bb3642-aa36-43b3-be94-d65989ba1c33",
+      "position": {
+        "x": -302.54892,
+        "y": -8.966564,
+        "z": 1067.14014
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.80365086,
+        "y": 1.80365086,
+        "z": 1.80365086
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_4_Opaque",
+      "id": "12c97fad-cc62-4c1b-a4d1-7ed4fbef8eea",
+      "position": {
+        "x": -312.856537,
+        "y": -3.50053787,
+        "z": 1062.26465
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_2_Opaque",
+      "id": "22780734-a4fc-4ba7-8b50-bf335d1ea8ce",
+      "position": {
+        "x": -319.572266,
+        "y": -0.532109261,
+        "z": 1072.8175
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.729527235,
+        "w": 0.6839518
+      },
+      "scale": {
+        "x": 3.010182,
+        "y": 3.010182,
+        "z": 3.010182
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_5_Opaque",
+      "id": "4dc51c5b-1918-421c-884c-d990814a1c51",
+      "position": {
+        "x": -313.445282,
+        "y": 2.555149,
+        "z": 1062.597
+      },
+      "rotation": {
+        "x": -0.183981,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.9829298
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_4_Opaque",
+      "id": "080da9b2-0922-4721-b010-b253f095a2de",
+      "position": {
+        "x": -302.361176,
+        "y": -5.343007,
+        "z": 1077.41675
+      },
+      "rotation": {
+        "x": 0.7772877,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.6291453
+      },
+      "scale": {
+        "x": 2.67806053,
+        "y": 2.678061,
+        "z": 2.678061
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_5_Opaque",
+      "id": "08ae5d6d-890b-4c95-93f8-c499b50aa49d",
+      "position": {
+        "x": -304.722534,
+        "y": -4.80507565,
+        "z": 1072.59949
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.9906761,
+        "w": 0.136238381
+      },
+      "scale": {
+        "x": 3.48022938,
+        "y": 3.48022938,
+        "z": 3.48022914
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_3_Opaque",
+      "id": "8d787234-f74a-4545-9564-399dd24d238c",
+      "position": {
+        "x": -316.000854,
+        "y": -10.1383638,
+        "z": 1068.07471
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.8839585,
+        "w": 0.467565417
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_4_Opaque",
+      "id": "e20cfa57-b3ec-42f5-92e0-73017da0795c",
+      "position": {
+        "x": -294.878052,
+        "y": 2.40418434,
+        "z": 1068.58289
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.314907521,
+        "w": 0.949122369
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_5_Opaque",
+      "id": "7d91efdb-b26a-49d7-af95-d7a001f7bdae",
+      "position": {
+        "x": -304.722534,
+        "y": -4.80507565,
+        "z": 994.443848
+      },
+      "rotation": {
+        "x": 0.746992767,
+        "y": 0.102726862,
+        "z": 0.6507234,
+        "w": 0.08948788
+      },
+      "scale": {
+        "x": 3.48023,
+        "y": 1.78360319,
+        "z": 3.48022914
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_2_Opaque",
+      "id": "a0c818e2-a91e-4a47-8b56-f0919498aefe",
+      "position": {
+        "x": -305.093231,
+        "y": -5.505028,
+        "z": 991.0219
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 3.6366334,
+        "y": 3.6366334,
+        "z": 3.6366334
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "c155b67a-ec20-4650-980b-62a11ccaaa1b",
+      "position": {
+        "x": -310.9125,
+        "y": -5.202816,
+        "z": 995.053467
+      },
+      "rotation": {
+        "x": 0.481955916,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.8761955
+      },
+      "scale": {
+        "x": 4.5490303,
+        "y": 4.5490303,
+        "z": 4.5490303
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_3_Opaque",
+      "id": "3df45e5f-169b-45cf-a14b-023a8e824430",
+      "position": {
+        "x": -320.9835,
+        "y": -8.189711,
+        "z": 997.5818
+      },
+      "rotation": {
+        "x": 0.753330648,
+        "y": -0.379491627,
+        "z": -0.433744073,
+        "w": -0.316773146
+      },
+      "scale": {
+        "x": 2.08616114,
+        "y": 2.08616114,
+        "z": 2.08616114
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "55ad7bb9-1ae7-49a0-b276-38878317d93f",
+      "position": {
+        "x": -318.4199,
+        "y": -7.70140839,
+        "z": 997.4983
+      },
+      "rotation": {
+        "x": -0.9992271,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.039309103
+      },
+      "scale": {
+        "x": 2.873805,
+        "y": 2.87380528,
+        "z": 2.87380528
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "2969cf76-dbf6-4b6b-965f-b0e3cea3428f",
+      "position": {
+        "x": -309.183,
+        "y": -0.073387146,
+        "z": 989.7782
+      },
+      "rotation": {
+        "x": -0.7502957,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.661102355
+      },
+      "scale": {
+        "x": 1.93721771,
+        "y": 1.93721771,
+        "z": 1.93721771
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "aea369c5-73bd-4d00-b330-0626e1d934f2",
+      "position": {
+        "x": -304.448425,
+        "y": -0.073387146,
+        "z": 990.831848
+      },
+      "rotation": {
+        "x": -0.6212469,
+        "y": -0.4162478,
+        "z": 0.1588471,
+        "w": 0.6446377
+      },
+      "scale": {
+        "x": 1.93721771,
+        "y": 1.93721771,
+        "z": 1.93721771
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_3_Opaque",
+      "id": "66a43518-5022-4241-812e-6385fbb022e9",
+      "position": {
+        "x": -313.003326,
+        "y": -1.28785133,
+        "z": 988.474731
+      },
+      "rotation": {
+        "x": 0.139419287,
+        "y": -0.9307401,
+        "z": -0.281849563,
+        "w": 0.1866708
+      },
+      "scale": {
+        "x": 1.93946636,
+        "y": 1.93946636,
+        "z": 1.93946636
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_1_Opaque",
+      "id": "3f4e71d6-f724-4c3b-98a0-3b9419cf6152",
+      "position": {
+        "x": -273.2377,
+        "y": -3.8965168,
+        "z": 1038.59253
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_1_Opaque",
+      "id": "ca7eec94-6bde-4974-a640-ed98871d390b",
+      "position": {
+        "x": -271.26532,
+        "y": -5.82296944,
+        "z": 1041.78906
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": -0.5168111,
+        "z": 0.0,
+        "w": 0.8560995
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.772518635
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_4_Opaque",
+      "id": "f617ad96-ab48-47b8-b468-d5df60c33d91",
+      "position": {
+        "x": -299.501556,
+        "y": -8.367014,
+        "z": 996.2796
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": -0.766792953,
+        "z": 0.0,
+        "w": 0.6418945
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_4_Opaque",
+      "id": "74e370ee-e57a-4a10-a902-5ccdac15524c",
+      "position": {
+        "x": -403.7443,
+        "y": -11.931654,
+        "z": 1002.337
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.73743224,
+        "y": 1.73743224,
+        "z": 2.789751
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_5_Opaque",
+      "id": "f3d4bd9e-9e9f-4bdf-96ad-a046ba7fe52c",
+      "position": {
+        "x": -386.4436,
+        "y": 1.04123688,
+        "z": 1073.6012
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.963774145,
+        "z": 0.0,
+        "w": 0.266719669
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_5_Opaque",
+      "id": "2d96208d-ec0c-4012-b23b-2c02dd1985a1",
+      "position": {
+        "x": -324.420868,
+        "y": 8.741444,
+        "z": 1074.18567
+      },
+      "rotation": {
+        "x": -0.121746115,
+        "y": -0.967748,
+        "z": -0.0275288336,
+        "w": 0.218824044
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.375206
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_1_Opaque",
+      "id": "dddba172-2309-42eb-bf98-54517fae75ec",
+      "position": {
+        "x": -364.584473,
+        "y": -2.81740475,
+        "z": 1085.89014
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.721018434,
+        "w": 0.692916
+      },
+      "scale": {
+        "x": 2.7999692,
+        "y": 2.7999692,
+        "z": 2.7999692
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_5_Opaque",
+      "id": "c0955b0e-0c37-424f-8b8e-8d2048ff5813",
+      "position": {
+        "x": -367.1243,
+        "y": -4.744401,
+        "z": 1083.43738
+      },
+      "rotation": {
+        "x": -0.577619433,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.8163062
+      },
+      "scale": {
+        "x": 3.00677156,
+        "y": 3.00677252,
+        "z": 3.00677252
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_2_Opaque",
+      "id": "c4217bc9-ca6c-44e8-802f-cf611d5d98ea",
+      "position": {
+        "x": -376.8452,
+        "y": 0.0945091248,
+        "z": 1080.62268
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 3.07505441,
+        "y": 3.07505441,
+        "z": 3.07505441
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_1_Opaque",
+      "id": "6186a3e5-1056-4909-b158-5fd822872ea7",
+      "position": {
+        "x": -370.551544,
+        "y": -18.9297619,
+        "z": 1080.63635
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 3.88161039,
+        "y": 3.44824648,
+        "z": 3.88161039
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_4_Opaque",
+      "id": "d282a99d-432b-4aaf-992b-3785a767504d",
+      "position": {
+        "x": -364.8126,
+        "y": -3.90357971,
+        "z": 1091.84033
+      },
+      "rotation": {
+        "x": 0.6187665,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.785575032
+      },
+      "scale": {
+        "x": 1.75815094,
+        "y": 1.90449131,
+        "z": 1.56183934
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_4_Opaque",
+      "id": "676c002f-b98a-4366-b900-e2b00b058675",
+      "position": {
+        "x": -353.761841,
+        "y": -0.912199,
+        "z": 1106.30273
+      },
+      "rotation": {
+        "x": -0.5412991,
+        "y": -0.0290210042,
+        "z": -0.156328678,
+        "w": 0.82566005
+      },
+      "scale": {
+        "x": 1.75815082,
+        "y": 1.90449131,
+        "z": 1.56183946
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_1_Opaque",
+      "id": "fc722e8f-0639-46a6-ad14-e3e24e81227f",
+      "position": {
+        "x": -353.831329,
+        "y": -22.8021622,
+        "z": 1080.63635
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": -0.266642243,
+        "w": 0.9637956
+      },
+      "scale": {
+        "x": 3.88161039,
+        "y": 3.88161039,
+        "z": 3.88161039
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_5_Opaque",
+      "id": "591dc11f-5f33-4802-82ce-fd7d6da86e57",
+      "position": {
+        "x": -356.827667,
+        "y": -4.772724,
+        "z": 1117.28943
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": -0.7378942,
+        "z": 0.0,
+        "w": 0.674916446
+      },
+      "scale": {
+        "x": 2.9372592,
+        "y": 2.9372592,
+        "z": 2.9372592
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "49b35aab-1144-42bf-8c37-a7f5d7eba6ce",
+      "position": {
+        "x": -311.4801,
+        "y": -8.987612,
+        "z": 1002.33868
+      },
+      "rotation": {
+        "x": 0.3594503,
+        "y": 0.629507959,
+        "z": 0.284458,
+        "w": 0.627374649
+      },
+      "scale": {
+        "x": 4.5490303,
+        "y": 4.5490303,
+        "z": 4.5490303
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_1_Opaque",
+      "id": "c620f2e6-3b02-4770-a3b0-612698b2995e",
+      "position": {
+        "x": -373.902771,
+        "y": -10.6996927,
+        "z": 1015.79028
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 3.67843437,
+        "y": 3.67843437,
+        "z": 3.67843437
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_5_Opaque",
+      "id": "c60b039f-de6a-4da8-b470-7f1b12543155",
+      "position": {
+        "x": -405.8689,
+        "y": -2.21848,
+        "z": 1009.99194
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": -0.766561866,
+        "z": 0.0,
+        "w": 0.6421705
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_3_Opaque",
+      "id": "56e2a08d-8168-4d19-bc21-435ef7c846aa",
+      "position": {
+        "x": -412.418732,
+        "y": -1.012227,
+        "z": 997.768433
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.5134699,
+        "z": 0.0,
+        "w": 0.8581077
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_3_Opaque",
+      "id": "5079c3dd-1fd9-4682-be41-c6852808df1d",
+      "position": {
+        "x": -410.7045,
+        "y": -1.760602,
+        "z": 1006.30286
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.9084307,
+        "z": 0.0,
+        "w": 0.418035656
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_3_Opaque",
+      "id": "cb81cc0a-92cf-42e3-b7b9-c08969b85cfc",
+      "position": {
+        "x": -304.89386,
+        "y": 15.0848923,
+        "z": 1029.75024
+      },
+      "rotation": {
+        "x": 0.21867317,
+        "y": -0.4863658,
+        "z": -0.3468952,
+        "w": 0.77155304
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_3_Opaque",
+      "id": "ba77bc6b-dc6f-41ca-9dde-9725e01aea2d",
+      "position": {
+        "x": -314.706238,
+        "y": 17.277771,
+        "z": 1018.82013
+      },
+      "rotation": {
+        "x": 0.229073256,
+        "y": -0.49249357,
+        "z": -0.83855015,
+        "w": 0.04253422
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_Ice_Hanging_1_Opaque",
+      "id": "a0979631-2d67-44c6-b49f-ffbc9fae99c4",
+      "position": {
+        "x": -307.5153,
+        "y": 19.9331875,
+        "z": 1040.27026
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "3ea7907d-4cd9-41f1-b3b4-0a042ce70bc3",
+      "position": {
+        "x": -415.3549,
+        "y": 5.429758,
+        "z": 1040.0741
+      },
+      "rotation": {
+        "x": 0.9743295,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.225126892
+      },
+      "scale": {
+        "x": 5.6217947,
+        "y": 5.62179375,
+        "z": 5.62179375
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_3_Opaque",
+      "id": "c8a5c2fd-335b-4a91-a293-5f508cab1d1c",
+      "position": {
+        "x": -417.878784,
+        "y": -0.8719368,
+        "z": 1049.5448
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.449242949,
+        "w": 0.8934096
+      },
+      "scale": {
+        "x": 1.59498787,
+        "y": 1.59498787,
+        "z": 1.594988
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_5_Opaque",
+      "id": "c824e7d0-0c21-4e62-b65a-965f903665c0",
+      "position": {
+        "x": -418.118927,
+        "y": -0.905946732,
+        "z": 1031.51257
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.661619961,
+        "z": 0.0,
+        "w": 0.749839365
+      },
+      "scale": {
+        "x": 0.763869762,
+        "y": 1.0,
+        "z": 2.12192845
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialRock_2_Opaque",
+      "id": "bd09c8de-e1b7-4fab-bff2-a58e16dde865",
+      "position": {
+        "x": -412.098,
+        "y": -0.230422974,
+        "z": 1034.11682
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.9584578,
+        "z": 0.0,
+        "w": 0.285234481
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.605132163,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_Ice_Bones_3_Opaque",
+      "id": "96016e4f-334c-45ef-9fc5-0c969d3394a4",
+      "position": {
+        "x": -355.654938,
+        "y": -0.7265816,
+        "z": 1083.1344
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.8556465,
+        "z": 0.0,
+        "w": 0.517560661
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "f30392c5-fb7d-4618-94fd-91e956deb77f",
+      "position": {
+        "x": -346.401367,
+        "y": 4.11996269,
+        "z": 1080.26917
+      },
+      "rotation": {
+        "x": 0.009189256,
+        "y": 0.0,
+        "z": -0.006010771,
+        "w": 0.99993974
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "c0f6f038-405f-4919-8986-c6512dec1c64",
+      "position": {
+        "x": -351.6811,
+        "y": 4.19613552,
+        "z": 1081.36145
+      },
+      "rotation": {
+        "x": -0.000234642808,
+        "y": 0.0,
+        "z": 0.0125133,
+        "w": 0.9999217
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "33abaedb-244a-4e80-8f9c-71fc675f2141",
+      "position": {
+        "x": -360.892426,
+        "y": 4.25497532,
+        "z": 1084.7439
+      },
+      "rotation": {
+        "x": 0.000448474369,
+        "y": 0.0,
+        "z": -0.00236608833,
+        "w": 0.999997139
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "1201b40e-64b6-44df-9bf2-83c7bb99ad12",
+      "position": {
+        "x": -360.3793,
+        "y": 4.2872076,
+        "z": 1081.801
+      },
+      "rotation": {
+        "x": 0.00754506839,
+        "y": 0.0,
+        "z": 0.0136366151,
+        "w": 0.9998786
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "c00e7cbd-8b24-4ba7-b2b2-0acb1171d79b",
+      "position": {
+        "x": -350.332764,
+        "y": 4.259278,
+        "z": 1082.89868
+      },
+      "rotation": {
+        "x": 0.00771405827,
+        "y": 0.0,
+        "z": 0.046166528,
+        "w": 0.998904
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "1a09bde7-2171-46ce-9e3d-cf33d55dfc93",
+      "position": {
+        "x": -349.130585,
+        "y": 4.10303974,
+        "z": 1078.03174
+      },
+      "rotation": {
+        "x": -0.0199438967,
+        "y": 0.0,
+        "z": -0.008040466,
+        "w": 0.9997688
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Kallie_Grass_Kelp_02_Red",
+      "id": "c0aff1a8-5e9d-45c8-9275-8e0d570e7b15",
+      "position": {
+        "x": -356.332367,
+        "y": 4.217492,
+        "z": 1081.71362
+      },
+      "rotation": {
+        "x": 0.01686193,
+        "y": 0.0,
+        "z": -0.0320535377,
+        "w": 0.999343932
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 0,
+      "priority": 0
+    }
+  ],
+  "Metadata": {
+    "gridSnappingDistance": "1.0",
+    "gridRotationSnapping": "45.0",
+    "gridCenter": "{\"x\":0.0,\"y\":0.0,\"z\":0.0}",
+    "gridRotation": "{\"x\":0.0,\"y\":0.0,\"z\":0.0}"
+  }
+}
