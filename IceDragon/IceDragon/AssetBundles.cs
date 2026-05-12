@@ -8,7 +8,7 @@ namespace IceDragon;
 
 public static class AssetBundles
 {
-    private const string ASSET_BUNDLE_FILE_NAME = "bundlenameorsomethinidk";
+    private const string ASSET_BUNDLE_FILE_NAME = "icedragonassets";
     
     public static AssetBundle assets { get; private set; }
     
