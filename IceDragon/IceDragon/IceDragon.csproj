@@ -5,8 +5,10 @@
         <AssemblyName>IceDragon</AssemblyName>
         <Version>1.0.0</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <LangVersion>11</LangVersion>
+        <LangVersion>14</LangVersion>
         <RootNamespace>IceDragon</RootNamespace>
+        <BepInExPluginGuid>com.trp.icedragon</BepInExPluginGuid>
+        <BepInExPluginName>Ice Dragon Mod</BepInExPluginName>
 
         <RestoreAdditionalProjectSources>
             https://api.nuget.org/v3/index.json;
@@ -28,4 +30,12 @@
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="ECCLibrary">
+            <HintPath>..\Dependencies\ECCLibrary.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <Import Project="../PostBuild.targets" />
 </Project>
