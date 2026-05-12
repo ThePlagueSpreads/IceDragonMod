@@ -21,6 +21,8 @@ public class Plugin : BaseUnityPlugin
     {
         Logger = base.Logger;
         
+        LanguageHandler.RegisterLocalizationFolder();
+        
         Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
         Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         
