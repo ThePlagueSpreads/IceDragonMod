@@ -3,6 +3,7 @@ using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using IceDragon.StructureLoading;
+using Nautilus.Handlers;
 
 namespace IceDragon;
 
@@ -14,8 +15,7 @@ namespace IceDragon;
 public class Plugin : BaseUnityPlugin
 {
     public new static ManualLogSource Logger { get; private set; }
-
-    private static Assembly Assembly { get; } = Assembly.GetExecutingAssembly();
+    public static Assembly Assembly { get; } = Assembly.GetExecutingAssembly();
 
     private void Awake()
     {
@@ -25,5 +25,7 @@ public class Plugin : BaseUnityPlugin
         Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
         
         StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Assembly));
+        
+        WaitScreenHandler.RegisterEarlyAsyncLoadTask(PluginInfo.PLUGIN_NAME, AssetBundles.LoadAssetBundlesAsync, "LoadMainBundleAsync");
     }
 }
