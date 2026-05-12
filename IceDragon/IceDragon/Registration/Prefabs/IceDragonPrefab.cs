@@ -1,6 +1,7 @@
 using System.Collections;
 using ECCLibrary;
 using ECCLibrary.Data;
+using ECCLibrary.Mono;
 using IceDragon.MaterialModifiers;
 using IceDragon.MonoBehaviours;
 using Nautilus.Assets;
@@ -83,6 +84,20 @@ public class IceDragonPrefab : CreatureAsset
             head.Find("Eye.R"),
             head.Find("Eye.R.001")
         ];
+        
+        var emitter = prefab.AddComponent<FMOD_CustomEmitter>();
+        emitter.followParent = true;
+        emitter.SetAsset(ModAudio.Roar);
+        
+        var voice = prefab.AddComponent<CreatureVoice>();
+        voice.emitter = emitter;
+        voice.closeIdleSound = ModAudio.Roar;
+        voice.animator = components.Animator;
+        voice.animatorTriggerParam = "roar";
+        voice.minInterval = 20;
+        voice.maxInterval = 30;
+        voice.playSoundOnStart = true;
+        voice.farThreshold = 100f;
         
         yield return null;
     }

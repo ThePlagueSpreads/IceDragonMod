@@ -2,6 +2,7 @@
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using IceDragon.Registration;
 using IceDragon.StructureLoading;
 using Nautilus.Handlers;
 

@@ -4,8 +4,7 @@ using IceDragon.Registration.Prefabs;
 using Nautilus.Handlers;
 using UnityEngine;
 
-namespace IceDragon;
-
+namespace IceDragon.Registration;
 
 public static class ModRegistration
 {
@@ -26,6 +25,8 @@ public static class ModRegistration
         Assets = assetBundleTask.assetBundle;
         
         new IceDragonPrefab().Register();
+        
+        ModAudio.RegisterAudio();
     }
     
     private static string GetAssetBundlePath(string assetBundleFileName) => 
