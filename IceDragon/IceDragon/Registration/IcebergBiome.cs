@@ -11,16 +11,16 @@ public class IcebergBiome
     public static void Register()
     {
         WaterscapeVolume.Settings settings = BiomeUtils.CreateBiomeSettings(
-            absorption: new Vector3(40f, 38f, 10f),
-            scattering: 1f,
-            scatteringColor: new Color(0.3f, 0.4f, 1f, 1f),
-            murkiness: 0.3f,
-            emissive: new Color(0.3f, 0.4f, 1f, 1f),
-            emissiveScale: 0.05f,
-            startDistance: 20f,
-            sunlightScale: 1f,
+            absorption: new Vector3(10f, 5f, 4f),
+            scattering: 1.5f,
+            scatteringColor: new Color(0f, 0.571f, 0.745f, 1f),
+            murkiness: 0.5f,
+            emissive: new Color(0.099f, 0.287f, 0.396f, 1f),
+            emissiveScale: 0.2f,
+            startDistance: 50f,
+            sunlightScale: 0.8f,
             ambientScale: 1f,
-            temperature: -10f
+            temperature: -50f
         );
         
         /*BiomeUtils.SkyPrefabFixer skyPrefab = BiomeUtils.CreateSkyPrefab(
