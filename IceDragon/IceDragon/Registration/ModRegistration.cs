@@ -25,6 +25,7 @@ public static class ModRegistration
         Assets = assetBundleTask.assetBundle;
         
         new IceDragonPrefab().Register();
+        IcebergBiome.Register();
         
         ModAudio.RegisterAudio();
     }
