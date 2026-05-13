@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace IceDragon.Registration.Prefabs;
 
-public class IceDragonPrefab : CreatureAsset
+public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDragon"))
 {
     private const float SwimVelocity = 16f;
     private const float ChaseVelocity = 19f;
@@ -22,10 +22,6 @@ public class IceDragonPrefab : CreatureAsset
     private const float AvoidTerrainPriority = 0.9f;
     private const float StayAtLeashPriority = 0.9f;
     private const float FleePriority = 0.35f;
-
-    public IceDragonPrefab() : base(PrefabInfo.WithTechType("IceDragon"))
-    {
-    }
 
     protected override CreatureTemplate CreateTemplate()
     {
