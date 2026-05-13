@@ -5,6 +5,7 @@ using ECCLibrary.Mono;
 using IceDragon.MaterialModifiers;
 using Nautilus.Assets;
 using Nautilus.Extensions;
+using Nautilus.Handlers;
 using Nautilus.Utility;
 using UnityEngine;
 
@@ -80,6 +81,28 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         voice.farThreshold = 100f;
         
         yield return null;
+    }
+    
+    protected override void PostRegister()
+    {
+        PDAScanner.EntryData entryData = new PDAScanner.EntryData
+        {
+            key = TechType,
+            encyclopedia = "IceDragon",
+            scanTime = 8,
+            isFragment = false,
+            destroyAfterScan = false
+        };
+        PDAHandler.AddCustomScannerEntry(entryData);
+
+        PDAHandler.AddEncyclopediaEntry(
+            key: "IceDragon",
+            path: "Lifeforms/Fauna/Leviathans",
+            title: null,
+            desc: null,
+            image: ModRegistration.Assets.LoadAsset<Texture2D>("IceDragonEncyFramed"),
+            popupImage: ModRegistration.Assets.LoadAsset<Sprite>("IceDragonPopup")
+        );
     }
 
     protected override void ApplyMaterials(GameObject prefab)
