@@ -45,9 +45,6 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             RespawnData = new RespawnData(false),
             CanBeInfected = false,
             BehaviourLODData = new BehaviourLODData(1000, 2000, 5000),
-            AggressiveWhenSeeTargetList = [
-                new AggressiveWhenSeeTargetData(EcoTargetType.Shark, 1.3f, 150, 3, false)
-            ],
             AggressiveToPilotingVehicleData = new AggressiveToPilotingVehicleData(40, 0.3f),
             AttackCyclopsData = new AttackCyclopsData(AttackCyclopsPriority, ChaseVelocity, 140, 0.4f, 4, 0.01f, 0.6f),
         };
@@ -88,7 +85,22 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         voice.playSoundOnStart = true;
         voice.farThreshold = 100f;
         
-        var attack = new GameObject().AddComponent<IceDragonAttack>();
+        var aggression = prefab.AddComponent<AggressiveWhenSeePlayer>();
+        aggression.targetType = EcoTargetType.Shark;
+        aggression.playerAttackInterval = 10f;
+        aggression.maxRangeMultiplier = MaxRangeMultiplierCurve;
+        aggression.distanceAggressionMultiplier = DistanceAggressionMultiplierCurve;
+        aggression.lastTarget = components.LastTarget;
+        aggression.creature = components.Creature;
+        aggression.aggressionPerSecond = 1.6f;
+        aggression.maxRangeScalar = 150;
+        aggression.maxSearchRings = 3;
+        aggression.ignoreSameKind = true;
+        aggression.targetShouldBeInfected = false;
+        aggression.minimumVelocity = 0;
+        aggression.hungerThreshold = 0;
+        
+        var attack = prefab.AddComponent<IceDragonAttack>();
         attack.evaluatePriority = AttackLastTargetPriority;
         attack.swimVelocity = ChaseVelocity;
         attack.aggressionThreshold = 0.6f;
@@ -129,4 +141,17 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     {
         MaterialUtils.ApplySNShaders(prefab, 4, 5, 1f, new IceDragonMaterialModifier());
     }
+    
+    private static readonly AnimationCurve MaxRangeMultiplierCurve = new(new Keyframe[3]
+    {
+        new Keyframe(0.0f, 1f, 0.0f, 0.0f, 0.333f, 0.333f),
+        new Keyframe(0.5f, 0.5f, 0.0f, 0.0f, 0.333f, 0.333f),
+        new Keyframe(1f, 1f, 0.0f, 0.0f, 0.333f, 0.333f)
+    });
+    
+    private static readonly AnimationCurve DistanceAggressionMultiplierCurve = new(new Keyframe[2]
+    {
+        new Keyframe(0.0f, 1f, 0.0f, 0.0f, 0.333f, 0.333f),
+        new Keyframe(1f, 0.0f, -3f, -3f, 0.333f, 0.333f)
+    });
 }
