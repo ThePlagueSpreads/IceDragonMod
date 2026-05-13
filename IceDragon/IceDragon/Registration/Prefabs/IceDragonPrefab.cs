@@ -3,7 +3,6 @@ using ECCLibrary;
 using ECCLibrary.Data;
 using ECCLibrary.Mono;
 using IceDragon.MaterialModifiers;
-using IceDragon.MonoBehaviours;
 using Nautilus.Assets;
 using Nautilus.Extensions;
 using Nautilus.Utility;
@@ -66,20 +65,6 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             var infectedMixin = prefab.AddComponent<InfectedMixin>();
             infectedMixin.renderers = prefab.GetComponentsInChildren<Renderer>(true);
         }
-
-        var eyeAnimation = prefab.AddComponent<EyeTracking>();
-        eyeAnimation.maxDistance = 20;
-        eyeAnimation.degreesPerSecond = 180;
-        eyeAnimation.dotLimit = 0.2f;
-        eyeAnimation.useLimits = true;
-        var head = prefab.transform.SearchChild("Head");
-        eyeAnimation.eyes =
-        [
-            head.Find("Eye.L"),
-            head.Find("Eye.L.001"),
-            head.Find("Eye.R"),
-            head.Find("Eye.R.001")
-        ];
         
         var emitter = prefab.AddComponent<FMOD_CustomEmitter>();
         emitter.followParent = true;
