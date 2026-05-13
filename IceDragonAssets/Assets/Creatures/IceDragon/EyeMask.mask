@@ -1,0 +1,263 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EyeMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: IceDragon
+    m_Weight: 0
+  - m_Path: IceDragonArmature
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.L
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.L/Lower wing.L.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.L/Lower wing.L.001/Lower wing.L.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.L/Lower wing.L.001/Lower wing.L.002/Lower
+      wing.L.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.L/Lower wing.L.001/Lower wing.L.002/Lower
+      wing.L.003/Lower wing.L.003_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.R
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.R/Lower wing.R.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.R/Lower wing.R.001/Lower wing.R.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.R/Lower wing.R.001/Lower wing.R.002/Lower
+      wing.R.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lower wing.R/Lower wing.R.001/Lower wing.R.002/Lower
+      wing.R.003/Lower wing.R.003_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lung
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Lung/Lung_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Attach
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Attach/Attach_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.L
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.L/Eye.L_end
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.L.001
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.L.001/Eye.L.001_end
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.R
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.R/Eye.R_end
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.R.001
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Eye.R.001/Eye.R.001_end
+    m_Weight: 1
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Ice cannon
+      main
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Ice cannon
+      main/Ice cannon
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Ice cannon
+      main/Ice cannon/Ice cannon_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Lower jaw
+      main
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Lower jaw
+      main/Lower jaw
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Lower jaw
+      main/Lower jaw/Spike.L
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Lower jaw
+      main/Lower jaw/Spike.L/Spike.L_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Lower jaw
+      main/Lower jaw/Spike.R
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Lower jaw
+      main/Lower jaw/Spike.R/Spike.R_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest/\u0421rest.001"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest/\u0421rest.001/\u0421rest.002"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest/\u0421rest.001/\u0421rest.002/\u0421rest.003"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest/\u0421rest.001/\u0421rest.002/\u0421rest.003/\u0421rest.003_end"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.L"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.L/\u0421rest.L.001"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.L/\u0421rest.L.001/\u0421rest.L.002"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.L/\u0421rest.L.001/\u0421rest.L.002/\u0421rest.L.003"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.L/\u0421rest.L.001/\u0421rest.L.002/\u0421rest.L.003/\u0421rest.L.004"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.L/\u0421rest.L.001/\u0421rest.L.002/\u0421rest.L.003/\u0421rest.L.004/\u0421rest.L.004_end"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.R"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.R/\u0421rest.R.001"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.R/\u0421rest.R.001/\u0421rest.R.002"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.R/\u0421rest.R.001/\u0421rest.R.002/\u0421rest.R.003"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.R/\u0421rest.R.001/\u0421rest.R.002/\u0421rest.R.003/\u0421rest.R.004"
+    m_Weight: 0
+  - m_Path: "IceDragonArmature/Root/Neck/Neck.001/Neck.002/Neck.004/Head/Upper jaw
+      main/Upper jaw/\u0421rest.R/\u0421rest.R.001/\u0421rest.R.002/\u0421rest.R.003/\u0421rest.R.004/\u0421rest.R.004_end"
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.L
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.L/Upper wing.L.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.L/Upper wing.L.001/Upper wing.L.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.L/Upper wing.L.001/Upper wing.L.002/Upper
+      wing.L.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.L/Upper wing.L.001/Upper wing.L.002/Upper
+      wing.L.003/Upper wing.L.004
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.L/Upper wing.L.001/Upper wing.L.002/Upper
+      wing.L.003/Upper wing.L.004/Upper wing.L.004_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.R
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.R/Upper wing.R.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.R/Upper wing.R.001/Upper wing.R.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.R/Upper wing.R.001/Upper wing.R.002/Upper
+      wing.R.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.R/Upper wing.R.001/Upper wing.R.002/Upper
+      wing.R.003/Upper wing.R.004
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Neck/Upper wing.R/Upper wing.R.001/Upper wing.R.002/Upper
+      wing.R.003/Upper wing.R.004/Upper wing.R.004_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Fin.L
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Fin.L/Fin.L.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Fin.L/Fin.L.001/Fin.L.001_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Fin.R
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Fin.R/Fin.R.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Fin.R/Fin.R.001/Fin.R.001_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Lower
+      tail
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Lower
+      tail/Lower tail_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Tail.007/Tail.008/Tail.008_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Upper
+      tail
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Tail/Tail.001/Tail.002/Tail.003/Tail.004/Tail.005/Tail.006/Upper
+      tail/Upper tail_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.L
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.L/Upper back.L.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.L/Upper back.L.001/Upper
+      back.L.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.L/Upper back.L.001/Upper
+      back.L.002/Upper back.L.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.L/Upper back.L.001/Upper
+      back.L.002/Upper back.L.003/Upper back.L.003_end
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.R
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.R/Upper back.R.001
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.R/Upper back.R.001/Upper
+      back.R.002
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.R/Upper back.R.001/Upper
+      back.R.002/Upper back.R.003
+    m_Weight: 0
+  - m_Path: IceDragonArmature/Root/Upper back/Upper back.R/Upper back.R.001/Upper
+      back.R.002/Upper back.R.003/Upper back.R.003_end
+    m_Weight: 0
