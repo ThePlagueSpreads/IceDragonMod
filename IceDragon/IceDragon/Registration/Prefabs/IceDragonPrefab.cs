@@ -139,7 +139,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
 
     protected override void ApplyMaterials(GameObject prefab)
     {
-        MaterialUtils.ApplySNShaders(prefab, 4, 5, 1f, new IceDragonMaterialModifier());
+        MaterialUtils.ApplySNShaders(prefab, 5, 5, 1f, new IceDragonMaterialModifier());
     }
     
     private static readonly AnimationCurve MaxRangeMultiplierCurve = new(new Keyframe[3]
