@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ECCLibrary;
 using ECCLibrary.Data;
 using ECCLibrary.Mono;
@@ -13,14 +14,15 @@ namespace IceDragon.Registration.Prefabs;
 public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDragon"))
 {
     private const float SwimVelocity = 16f;
-    private const float ChaseVelocity = 19f;
-    private const float MaxVelocity = 22f;
+    private const float ChaseVelocity = 22f;
+    private const float MaxVelocity = 20f;
     
     private const float SwimPriority = 0.3f;
-    private const float AvoidObstaclesPriority = 0.4f;
-    private const float AvoidTerrainPriority = 0.9f;
-    private const float StayAtLeashPriority = 0.9f;
+    private const float AvoidTerrainPriority = 0.7f;
+    private const float StayAtLeashPriority = 0.79f;
     private const float FleePriority = 0.35f;
+    private const float AttackLastTargetPriority = 0.75f;
+    private const float AttackCyclopsPriority = 0.83f;
 
     protected override CreatureTemplate CreateTemplate()
     {
@@ -33,14 +35,20 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
-            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 100),
+            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 90),
             FleeOnDamageData = new FleeOnDamageData(FleePriority, SwimVelocity, 400f),
             EyeFOV = -0.9f,
             BioReactorCharge = 10000,
             CellLevel = LargeWorldEntity.CellLevel.Far,
             RespawnData = new RespawnData(false),
             CanBeInfected = false,
-            BehaviourLODData = new BehaviourLODData(1000, 2000, 5000)
+            BehaviourLODData = new BehaviourLODData(1000, 2000, 5000),
+            AggressiveWhenSeeTargetList = [
+                new AggressiveWhenSeeTargetData(EcoTargetType.Shark, 1.3f, 150, 3, false)
+            ],
+            AggressiveToPilotingVehicleData = new AggressiveToPilotingVehicleData(40, 0.3f),
+            AttackLastTargetData = new AttackLastTargetData(AttackLastTargetPriority, ChaseVelocity, 0.6f, 12, 18),
+            AttackCyclopsData = new AttackCyclopsData(AttackCyclopsPriority, ChaseVelocity, 140, 0.4f, 4, 0.01f, 0.6f),
         };
         return template;
     }
