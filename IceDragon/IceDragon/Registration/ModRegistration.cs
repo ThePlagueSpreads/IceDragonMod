@@ -1,6 +1,7 @@
 using System.Collections;
 using System.IO;
 using IceDragon.Registration.Prefabs;
+using IceDragon.StructureLoading;
 using Nautilus.Handlers;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public static class ModRegistration
         
         new IceDragonPrefab().Register();
         IcebergBiome.Register();
+        
+        StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Plugin.Assembly));
         
         ModAudio.RegisterAudio();
     }
