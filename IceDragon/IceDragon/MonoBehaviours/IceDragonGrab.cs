@@ -17,8 +17,8 @@ public class IceDragonGrab : MonoBehaviour
     private Quaternion _vehicleInitialRotation;
     private Vector3 _vehicleInitialPosition;
     
-    private static readonly int GrabSmall = Animator.StringToHash("reaper_small");
-    private static readonly int GrabLarge = Animator.StringToHash("reaper_large");
+    private static readonly int GrabSmall = Animator.StringToHash("grab_small");
+    private static readonly int GrabLarge = Animator.StringToHash("grab_large");
     
     private enum VehicleType
     {
