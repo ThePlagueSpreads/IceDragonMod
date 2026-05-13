@@ -39,7 +39,6 @@
 
     <ItemGroup>
       <Folder Include="MaterialModifiers\" />
-      <Folder Include="Structures\" />
     </ItemGroup>
 
     <Import Project="../PostBuild.targets" />

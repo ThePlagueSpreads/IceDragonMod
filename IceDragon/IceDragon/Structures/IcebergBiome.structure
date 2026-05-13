@@ -1121,12 +1121,117 @@
       },
       "cellLevel": 0,
       "priority": 0
+    },
+    {
+      "classId": "IcebergsBiomeSphereVolume",
+      "id": "717b2e33-5033-4575-b727-bca8bc6b1ae9",
+      "position": {
+        "x": -307.5233,
+        "y": -3.02923584,
+        "z": 980.890747
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 122.852722,
+        "y": 122.852722,
+        "z": 122.852722
+      },
+      "cellLevel": 3,
+      "priority": 0
+    },
+    {
+      "classId": "IcebergsBiomeSphereVolume",
+      "id": "efff7c69-7a86-4fce-ae47-1363c24d41eb",
+      "position": {
+        "x": -307.5233,
+        "y": -3.02923584,
+        "z": 980.890747
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 122.852722,
+        "y": 122.852722,
+        "z": 122.852722
+      },
+      "cellLevel": 3,
+      "priority": 0
+    },
+    {
+      "classId": "IcebergsBiomeSphereVolume",
+      "id": "a70d6a9e-6c67-4eac-8b2c-1cdcdb063128",
+      "position": {
+        "x": -307.5233,
+        "y": -3.02923584,
+        "z": 1060.09131
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 122.852722,
+        "y": 122.852722,
+        "z": 122.852722
+      },
+      "cellLevel": 3,
+      "priority": 0
+    },
+    {
+      "classId": "IcebergsBiomeSphereVolume",
+      "id": "fff508ae-1c3b-40e6-b57e-d5a3a92095da",
+      "position": {
+        "x": -387.212952,
+        "y": -3.02923584,
+        "z": 1018.88916
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 122.852722,
+        "y": 122.852722,
+        "z": 122.852722
+      },
+      "cellLevel": 3,
+      "priority": 0
+    },
+    {
+      "classId": "IcebergsBiomeSphereVolume",
+      "id": "bc8261d0-2c0f-4085-bb64-b69924e2e391",
+      "position": {
+        "x": -376.010162,
+        "y": -3.02923584,
+        "z": 1092.39453
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 122.852722,
+        "y": 122.852722,
+        "z": 122.852722
+      },
+      "cellLevel": 3,
+      "priority": 0
     }
   ],
-  "Metadata": {
-    "gridSnappingDistance": "1.0",
-    "gridRotationSnapping": "45.0",
-    "gridCenter": "{\"x\":0.0,\"y\":0.0,\"z\":0.0}",
-    "gridRotation": "{\"x\":0.0,\"y\":0.0,\"z\":0.0}"
-  }
+  "IsSorted": false
 }
