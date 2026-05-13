@@ -17,7 +17,7 @@ public class IceDragonMaterialModifier : MaterialModifier
             material.SetFloat("_IBLreductionAtNight", 0.25f);
             material.SetFloat("_Fresnel", 0.7f);
         }
-        else
+        else if (materialIndex == 0)
         {
             material.EnableKeyword("MARMO_EMISSION");
             material.SetColor("_GlowColor", Color.black);
