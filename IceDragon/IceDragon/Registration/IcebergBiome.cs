@@ -21,7 +21,7 @@ public static class IcebergBiome
             startDistance: 50f,
             sunlightScale: 0.8f,
             ambientScale: 1f,
-            temperature: -50f
+            temperature: 1f
         );
         
         /*BiomeUtils.SkyPrefabFixer skyPrefab = BiomeUtils.CreateSkyPrefab(
