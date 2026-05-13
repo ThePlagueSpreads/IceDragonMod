@@ -31,6 +31,8 @@ GameObject:
   - component: {fileID: 4099777713691191964}
   - component: {fileID: 1547635215965496130}
   - component: {fileID: 1630639975361820086}
+  - component: {fileID: 6071533784590135223}
+  - component: {fileID: 7344194838956249952}
   m_Layer: 0
   m_Name: IceDragonPrefab
   m_TagString: Untagged
@@ -95,6 +97,34 @@ CapsuleCollider:
   m_Height: 29.938164
   m_Direction: 2
   m_Center: {x: 0, y: 3.74, z: -13.994186}
+--- !u!136 &6071533784590135223
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566642262428993676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.14
+  m_Height: 13.51
+  m_Direction: 2
+  m_Center: {x: 0, y: 8.16, z: 6.6}
+--- !u!136 &7344194838956249952
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7566642262428993676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.47
+  m_Height: 24.71
+  m_Direction: 0
+  m_Center: {x: 0, y: -2.01, z: -7.41}
 --- !u!1001 &3955713808702456279
 PrefabInstance:
   m_ObjectHideFlags: 0
