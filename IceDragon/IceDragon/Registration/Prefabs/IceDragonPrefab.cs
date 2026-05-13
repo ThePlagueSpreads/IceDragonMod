@@ -65,7 +65,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             infectedMixin.renderers = prefab.GetComponentsInChildren<Renderer>(true);
         }
         
-        var emitter = prefab.AddComponent<FMOD_CustomEmitter>();
+        var emitter = prefab.transform.SearchChild("Head").gameObject.AddComponent<FMOD_CustomEmitter>();
         emitter.followParent = true;
         emitter.SetAsset(ModAudio.Roar);
         
