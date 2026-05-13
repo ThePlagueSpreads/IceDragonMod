@@ -32,7 +32,7 @@ public static class IcebergBiome
         );
         skyPrefab.masterIntensity = 10f;*/
 
-        BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyGrandReef"));
+        BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyBloodKelp"));
         
         BiomeHandler.AddBiomeMusic("icebergs", ModAudio.BiomeMusic);
 
