@@ -3,10 +3,11 @@ using Nautilus.Assets.PrefabTemplates;
 using Nautilus.Handlers;
 using Nautilus.Utility;
 using UnityEngine;
+
 namespace IceDragon.Registration;
 
 
-public class IcebergBiome
+public static class IcebergBiome
 {
     public static void Register()
     {
@@ -33,6 +34,8 @@ public class IcebergBiome
 
         BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyKooshZone"));
         
+        BiomeHandler.AddBiomeMusic("icebergs", ModAudio.BiomeMusic);
+
         ConsoleCommandsHandler.AddBiomeTeleportPosition("icebergs", new Vector3(-339, 0, 1046));
 
         RegisterAtmosphereVolume(PrefabInfo.WithTechType("IcebergsBiomeSphereVolume"));

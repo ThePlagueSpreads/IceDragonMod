@@ -11,7 +11,7 @@ namespace IceDragon.Registration;
 
 public static class ModAudio
 {
-    public static FMODAsset Roar { get; } = AudioUtils.GetFmodAsset("PodshellMusic");
+    public static FMODAsset Roar { get; } = AudioUtils.GetFmodAsset("IceDragonRoar");
     
     public static FMODAsset BiomeMusic { get; } = AudioUtils.GetFmodAsset("IceSpikesMusic");
 
