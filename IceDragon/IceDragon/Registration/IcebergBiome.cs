@@ -22,15 +22,7 @@ public static class IcebergBiome
             sunlightScale: 0.8f,
             ambientScale: 1f,
             temperature: 1f
-        );
-        
-        /*BiomeUtils.SkyPrefabFixer skyPrefab = BiomeUtils.CreateSkyPrefab(
-            name: "AbyssalMeadowsSky",
-            specularCube: null, // This should NOT be null but is for now since idk what texture to use
-            affectedByDayNightCycle: true,
-            outdoors: true
-        );
-        skyPrefab.masterIntensity = 10f;*/
+        );//
 
         BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyBloodKelp"));
         
