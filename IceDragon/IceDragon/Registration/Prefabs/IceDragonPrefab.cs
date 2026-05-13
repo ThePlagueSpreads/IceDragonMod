@@ -78,12 +78,13 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var voice = prefab.AddComponent<CreatureVoice>();
         voice.emitter = emitter;
         voice.closeIdleSound = ModAudio.Roar;
+        voice.farIdleSound = ModAudio.FarRoar;
         voice.animator = components.Animator;
         voice.animatorTriggerParam = "roar";
         voice.minInterval = 20;
         voice.maxInterval = 30;
         voice.playSoundOnStart = true;
-        voice.farThreshold = 100f;
+        voice.farThreshold = 50f;
         
         var aggression = prefab.AddComponent<AggressiveWhenSeePlayer>();
         aggression.targetType = EcoTargetType.Shark;

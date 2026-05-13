@@ -12,6 +12,7 @@ namespace IceDragon.Registration;
 public static class ModAudio
 {
     public static FMODAsset Roar { get; } = AudioUtils.GetFmodAsset("IceDragonRoar");
+    public static FMODAsset FarRoar { get; } = AudioUtils.GetFmodAsset("IceDragonFarRoar");
     public static FMODAsset Snarl { get; } = AudioUtils.GetFmodAsset("IceDragonSnarl");
     
     public static FMODAsset BiomeMusic { get; } = AudioUtils.GetFmodAsset("IceSpikesMusic");
@@ -24,6 +25,14 @@ public static class ModAudio
             "icedragon_roar3",
             "icedragon_roar4",
             "icedragon_roar5"
+        ]);
+        
+        RegisterDragonSound(FarRoar, 10, 400, [
+            "icedragon_far_roar1",
+            "icedragon_far_roar2",
+            "icedragon_far_roar3",
+            "icedragon_far_roar4",
+            "icedragon_far_roar5"
         ]);
         
         RegisterDragonSound(Snarl, 10, 120f, [
