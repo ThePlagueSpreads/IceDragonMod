@@ -108,8 +108,8 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         attackLastTarget.evaluatePriority = AttackLastTargetPriority;
         attackLastTarget.swimVelocity = ChaseVelocity;
         attackLastTarget.aggressionThreshold = 0.6f;
-        attackLastTarget.minAttackDuration = 3;
-        attackLastTarget.maxAttackDuration = 12;
+        attackLastTarget.minAttackDuration = 8;
+        attackLastTarget.maxAttackDuration = 18;
         attackLastTarget.pauseInterval = 17;
         attackLastTarget.rememberTargetTime = 5;
         attackLastTarget.resetAggressionOnTime = true;
