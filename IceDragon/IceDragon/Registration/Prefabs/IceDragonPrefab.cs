@@ -70,8 +70,10 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             var infectedMixin = prefab.AddComponent<InfectedMixin>();
             infectedMixin.renderers = prefab.GetComponentsInChildren<Renderer>(true);
         }
+
+        var head = prefab.transform.SearchChild("Head").gameObject;
         
-        var emitter = prefab.transform.SearchChild("Head").gameObject.AddComponent<FMOD_CustomEmitter>();
+        var emitter = head.AddComponent<FMOD_CustomEmitter>();
         emitter.followParent = true;
         emitter.SetAsset(ModAudio.Roar);
         
@@ -86,6 +88,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         voice.playSoundOnStart = true;
         voice.farThreshold = 50f;
         
+        // AGGRESSION
         var aggression = prefab.AddComponent<AggressiveWhenSeePlayer>();
         aggression.targetType = EcoTargetType.Shark;
         aggression.playerAttackInterval = 10f;
@@ -101,17 +104,46 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         aggression.minimumVelocity = 0;
         aggression.hungerThreshold = 0;
         
-        var attack = prefab.AddComponent<IceDragonAttack>();
-        attack.evaluatePriority = AttackLastTargetPriority;
-        attack.swimVelocity = ChaseVelocity;
-        attack.aggressionThreshold = 0.6f;
-        attack.minAttackDuration = 3;
-        attack.maxAttackDuration = 12;
-        attack.pauseInterval = 17;
-        attack.rememberTargetTime = 5;
-        attack.resetAggressionOnTime = true;
-        attack.lastTarget = components.LastTarget;
-        attack.voice = voice;
+        var attackLastTarget = prefab.AddComponent<IceDragonAttack>();
+        attackLastTarget.evaluatePriority = AttackLastTargetPriority;
+        attackLastTarget.swimVelocity = ChaseVelocity;
+        attackLastTarget.aggressionThreshold = 0.6f;
+        attackLastTarget.minAttackDuration = 3;
+        attackLastTarget.maxAttackDuration = 12;
+        attackLastTarget.pauseInterval = 17;
+        attackLastTarget.rememberTargetTime = 5;
+        attackLastTarget.resetAggressionOnTime = true;
+        attackLastTarget.lastTarget = components.LastTarget;
+        attackLastTarget.voice = voice;
+
+        // GRAB ATTACK
+        var grab = prefab.AddComponent<IceDragonGrab>();
+        grab.creature = components.Creature;
+        grab.seamothAttachPoint = prefab.transform.SearchChild("VehicleAttachPoint");
+        var grabSound = head.AddComponent<FMOD_CustomLoopingEmitter>();
+        grabSound.followParent = true;
+        grabSound.playOnAwake = false;
+        grabSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/reaper/attack_seamoth"));
+        grab.grabSound = grabSound;
+        
+        // MELEE ATTACK
+        var meleeTrigger = prefab.transform.SearchChild("AttackTrigger");
+        
+        var meleeAttack = prefab.AddComponent<IceDragonMeleeAttack>();
+        meleeAttack.grab = grab;
+        meleeAttack.creature = components.Creature;
+        meleeAttack.animator = components.Animator;
+        meleeAttack.lastTarget = components.LastTarget;
+        meleeAttack.liveMixin = components.LiveMixin;
+        meleeAttack.mouth = meleeAttack.gameObject;
+        
+        var biteSound = head.AddComponent<FMOD_CustomEmitter>();
+        biteSound.followParent = true;
+        biteSound.playOnAwake = false;
+        biteSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/spine_eel/bite"));
+        meleeAttack.biteSoundEmitter = biteSound;
+        
+        meleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>().melee = meleeAttack;
         
         yield return null;
     }
