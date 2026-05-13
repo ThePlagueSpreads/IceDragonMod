@@ -27,9 +27,9 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var template = new CreatureTemplate(() => ModRegistration.Assets.LoadAsset<GameObject>("IceDragonPrefab"),
             BehaviourType.Leviathan, EcoTargetType.Leviathan, 8_000)
         {
-            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(30, 2, 30), 3, 1.2f, true),
-            SwimBehaviourData = new SwimBehaviourData(0.2f),
-            LocomotionData = new LocomotionData(12f, 0.02f, 1, 0.1f, true),
+            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(33, 2, 33), 3.5f, 1.2f, true),
+            SwimBehaviourData = new SwimBehaviourData(0.3f),
+            LocomotionData = new LocomotionData(13f, 0.03f, 1, 0f, true),
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
