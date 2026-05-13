@@ -33,7 +33,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         {
             SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(33, 2, 33), 3.5f, 1.2f, true),
             SwimBehaviourData = new SwimBehaviourData(0.3f),
-            LocomotionData = new LocomotionData(13f, 0.03f, 1, 0f, true),
+            LocomotionData = new LocomotionData(13f, 0.15f, 1, 0f, true),
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
