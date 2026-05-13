@@ -4,6 +4,7 @@ using ECCLibrary;
 using ECCLibrary.Data;
 using ECCLibrary.Mono;
 using IceDragon.MaterialModifiers;
+using IceDragon.MonoBehaviours;
 using Nautilus.Assets;
 using Nautilus.Extensions;
 using Nautilus.Handlers;
@@ -48,7 +49,6 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
                 new AggressiveWhenSeeTargetData(EcoTargetType.Shark, 1.3f, 150, 3, false)
             ],
             AggressiveToPilotingVehicleData = new AggressiveToPilotingVehicleData(40, 0.3f),
-            AttackLastTargetData = new AttackLastTargetData(AttackLastTargetPriority, ChaseVelocity, 0.6f, 12, 18),
             AttackCyclopsData = new AttackCyclopsData(AttackCyclopsPriority, ChaseVelocity, 140, 0.4f, 4, 0.01f, 0.6f),
         };
         return template;
@@ -87,6 +87,18 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         voice.maxInterval = 30;
         voice.playSoundOnStart = true;
         voice.farThreshold = 100f;
+        
+        var attack = new GameObject().AddComponent<IceDragonAttack>();
+        attack.evaluatePriority = AttackLastTargetPriority;
+        attack.swimVelocity = ChaseVelocity;
+        attack.aggressionThreshold = 0.6f;
+        attack.minAttackDuration = 3;
+        attack.maxAttackDuration = 12;
+        attack.pauseInterval = 17;
+        attack.rememberTargetTime = 5;
+        attack.resetAggressionOnTime = true;
+        attack.lastTarget = components.LastTarget;
+        attack.voice = voice;
         
         yield return null;
     }
