@@ -5,6 +5,7 @@ namespace IceDragon.MonoBehaviours;
 public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 {
 	private static readonly int BiteAnimID = Animator.StringToHash("bite");
+	private static readonly int LowerBiteAnimID = Animator.StringToHash("lower_bite");
 	
 	public float biteAggressionThreshold = 0.2f;
 	public float biteInterval = 3.5f;
@@ -15,6 +16,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 
 	public IceDragonGrab grab;
 	public GameObject mouth;
+	public GameObject lowerTrigger;
 	public LastTarget lastTarget;
 	public Creature creature;
 	public LiveMixin liveMixin;
@@ -33,6 +35,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 	private bool _frozen;
 	private bool _wasBiting;
 	private bool _initBiting;
+	private bool _lastBiteIsLower;
 
 	public int managedUpdateIndex { get; set; }
 
@@ -50,6 +53,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 	{
 		BehaviourUpdateUtils.Deregister(this);
 		animator.SetBool(BiteAnimID, value: false);
+		animator.SetBool(LowerBiteAnimID, value: false);
 		_wasBiting = false;
 	}
 
@@ -125,12 +129,14 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 		return other;
 	}
 
-	public void OnTouch(Collider collider)
+	public void OnTouch(Collider collider, bool lower)
 	{
 		if (!liveMixin.IsAlive() || !(Time.time > _timeLastBite + biteInterval) || !(creature.Aggression.Value >= 0.5f))
 		{
 			return;
 		}
+		
+		_lastBiteIsLower = lower;
 		
 		GameObject target = GetTarget(collider);
 		if (grab.IsHoldingVehicle())
@@ -138,7 +144,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 			return;
 		}
 		
-		if (grab.GetCanGrabVehicle())
+		if (!lower && grab.GetCanGrabVehicle())
 		{
 			bool grabbedAny = false;
 			var seamoth = target.GetComponent<SeaMoth>();
@@ -165,10 +171,10 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 			}
 		}
 		
-		OnTouchNormalPrey(collider);
+		OnTouchNormalPrey(collider, lower);
 	}
 
-	private void OnTouchNormalPrey(Collider collider)
+	private void OnTouchNormalPrey(Collider collider, bool lower)
 	{
 		if (!enabled)
 		{
@@ -188,17 +194,27 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 		var targetLm = target.GetComponent<LiveMixin>();
 		if (targetLm != null && targetLm.IsAlive())
 		{
-			targetLm.TakeDamage(GetBiteDamage(target), default, DamageType.Normal, gameObject);
+			if (_lastBiteIsLower)
+				Invoke(nameof(DelayedDamagePlayer), 0.84f);
+			else
+				targetLm.TakeDamage(GetBiteDamage(target), default, DamageType.Normal, gameObject);
 			targetLm.NotifyCreatureDeathsOfCreatureAttack();
 		}
-		var position = collider.ClosestPointOnBounds(mouth.transform.position);
+		
+		var position = collider.ClosestPointOnBounds((lower ? lowerTrigger : mouth).transform.position);
 		if (damageFX != null)
 		{
 			Instantiate(damageFX, position, damageFX.transform.rotation);
 		}
+		
 		biteSoundEmitter.Play();
 		creature.Aggression.Add(0f - biteAggressionDecrement);
 		gameObject.SendMessage("OnMeleeAttack", target, SendMessageOptions.DontRequireReceiver);
+	}
+
+	private void DelayedDamagePlayer()
+	{
+		Player.main.liveMixin.TakeDamage(GetBiteDamage(Player.main.gameObject), default, DamageType.Normal, gameObject);
 	}
 	
 	private bool CanEat(BehaviourType behaviourType, bool holdingByPlayer = false)
@@ -246,7 +262,8 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 		var isBiting = Time.time - _timeLastBite < 0.2f;
 		if (isBiting != _wasBiting || !_initBiting)
 		{
-			animator.SetBool(BiteAnimID, isBiting);
+			animator.SetBool(BiteAnimID, isBiting && !_lastBiteIsLower);
+			animator.SetBool(LowerBiteAnimID, isBiting && _lastBiteIsLower);
 		}
 		_wasBiting = isBiting;
 		_initBiting = true;

@@ -37,7 +37,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
-            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 150),
+            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 140),
             FleeOnDamageData = new FleeOnDamageData(FleePriority, SwimVelocity, 400f),
             EyeFOV = -0.9f,
             BioReactorCharge = 10000,
@@ -128,6 +128,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         
         // MELEE ATTACK
         var meleeTrigger = prefab.transform.SearchChild("AttackTrigger");
+        var lowerMeleeTrigger = prefab.transform.SearchChild("LowerAttackTrigger");
         
         var meleeAttack = prefab.AddComponent<IceDragonMeleeAttack>();
         meleeAttack.grab = grab;
@@ -136,6 +137,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         meleeAttack.lastTarget = components.LastTarget;
         meleeAttack.liveMixin = components.LiveMixin;
         meleeAttack.mouth = meleeAttack.gameObject;
+        meleeAttack.lowerTrigger = lowerMeleeTrigger.gameObject;
         
         var biteSound = head.AddComponent<FMOD_CustomEmitter>();
         biteSound.followParent = true;
@@ -143,7 +145,13 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         biteSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/spine_eel/bite"));
         meleeAttack.biteSoundEmitter = biteSound;
         
+        // upper trigger
         meleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>().melee = meleeAttack;
+        
+        // lower trigger
+        var lower = lowerMeleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>();
+        lower.melee = meleeAttack;
+        lower.lower = true;
         
         yield return null;
     }
