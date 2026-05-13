@@ -22,8 +22,7 @@ public class IcebergBiome
             ambientScale: 1f,
             temperature: -10f
         );
-
-
+        
         /*BiomeUtils.SkyPrefabFixer skyPrefab = BiomeUtils.CreateSkyPrefab(
             name: "AbyssalMeadowsSky",
             specularCube: null, // This should NOT be null but is for now since idk what texture to use
@@ -34,7 +33,7 @@ public class IcebergBiome
 
         BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyKooshZone"));
         
-        ConsoleCommandsHandler.AddBiomeTeleportPosition("Icebergs", new Vector3(-339, 0, 1046));
+        ConsoleCommandsHandler.AddBiomeTeleportPosition("icebergs", new Vector3(-339, 0, 1046));
 
         RegisterAtmosphereVolume(PrefabInfo.WithTechType("IcebergsBiomeSphereVolume"));
     }
