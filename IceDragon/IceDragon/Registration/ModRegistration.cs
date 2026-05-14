@@ -12,9 +12,13 @@ public static class ModRegistration
     private const string ASSET_BUNDLE_FILE_NAME = "icedragonassets";
     
     public static AssetBundle Assets { get; private set; }
+
+    private static bool registered = false;
     
     internal static IEnumerator LoadModAsync(WaitScreenHandler.WaitScreenTask task)
     {
+        if (registered) yield break;
+        
         string path = GetAssetBundlePath(ASSET_BUNDLE_FILE_NAME);
         AssetBundleCreateRequest assetBundleTask = AssetBundle.LoadFromFileAsync(path);
         while (!assetBundleTask.isDone)
@@ -31,6 +35,7 @@ public static class ModRegistration
         StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Plugin.Assembly));
         
         ModAudio.RegisterAudio();
+        registered = true;
     }
     
     private static string GetAssetBundlePath(string assetBundleFileName) => 

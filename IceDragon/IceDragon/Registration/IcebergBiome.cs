@@ -22,7 +22,7 @@ public static class IcebergBiome
             sunlightScale: 0.8f,
             ambientScale: 1f,
             temperature: 1f
-        );//
+        );
 
         BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyBloodKelp"));
         
