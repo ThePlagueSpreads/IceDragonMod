@@ -1,4 +1,5 @@
 using System.Collections;
+using ECCLibrary.Data;
 using Nautilus.Assets;
 using Nautilus.Assets.PrefabTemplates;
 using Nautilus.Handlers;
@@ -10,6 +11,7 @@ namespace IceDragon.Registration.Prefabs;
 public static class IceFruitTree
 {
     public static TechType TechType { get; private set; }
+    private static GameObject growingModel { get; set; } = null;
     
     public static void Register()
     {
@@ -24,28 +26,35 @@ public static class IceFruitTree
         CustomPrefab prefab = new CustomPrefab(info);
         prefab.SetGameObject(clone);
         prefab.Register();
+        
+        PDAScanner.EntryData entryData = new PDAScanner.EntryData
+        {
+            key = TechType,
+            encyclopedia = "IceFruitTree",
+            scanTime = 4,
+        };
+        PDAHandler.AddCustomScannerEntry(entryData);
+
+        PDAHandler.AddEncyclopediaEntry(
+            key: "IceFruitTree",
+            path: "Lifeforms/Flora/Exploitable",
+            title: null,
+            desc: null
+        );
     }
 
-    public static IEnumerator ModifyPrefabAsync(GameObject gameObject)
+    private static IEnumerator ModifyPrefabAsync(GameObject gameObject)
     {
         //Load Trunk Textures
-        AssetBundleRequest assetRequest = ModRegistration.Assets.LoadAssetAsync<Texture2D>("iceTreeMainTexture");
-        yield return assetRequest;
-        if (assetRequest == null) { Plugin.Logger.LogError("Failed to find iceTreeMainTexture from asset bundle"); yield break; }
-        Texture2D mainTexture = assetRequest.asset as Texture2D;
+        Texture2D mainTexture = null;
+        yield return ModRegistration.LoadTexture("iceTreeMainTexture", (texture2d) => mainTexture = texture2d);
         //Load Leaf Textures
-        assetRequest = ModRegistration.Assets.LoadAssetAsync<Texture2D>("iceTreeFruitLeafMain");
-        yield return assetRequest;
-        if (assetRequest == null) { Plugin.Logger.LogError("Failed to find iceTreeFruitLeafMain from asset bundle"); yield break; }
-        Texture2D leafFruitMainTexture = assetRequest.asset as Texture2D;
-        assetRequest = ModRegistration.Assets.LoadAssetAsync<Texture2D>("iceTreeFruitLeafMainSpec");
-        yield return assetRequest;
-        if (assetRequest == null) { Plugin.Logger.LogError("Failed to find iceTreeFruitLeafMainSpec from asset bundle"); yield break; }
-        Texture2D leafFruitSpecTexture = assetRequest.asset as Texture2D;
-        assetRequest = ModRegistration.Assets.LoadAssetAsync<Texture2D>("iceTreeFruitLeafMainIllum");
-        yield return assetRequest;
-        if (assetRequest == null) { Plugin.Logger.LogError("Failed to find iceTreeFruitLeafMainIllum from asset bundle"); yield break; }
-        Texture2D leafFruitIllumTexture = assetRequest.asset as Texture2D;
+        Texture2D leafFruitMainTexture = null;
+        yield return ModRegistration.LoadTexture("iceTreeFruitLeafMain", (texture2d) => leafFruitMainTexture = texture2d);
+        Texture2D leafFruitSpecTexture = null;
+        yield return ModRegistration.LoadTexture("iceTreeFruitLeafMainSpec", (texture2d) => leafFruitSpecTexture = texture2d);
+        Texture2D leafFruitIllumTexture = null;
+        yield return ModRegistration.LoadTexture("iceTreeFruitLeafMainIllum", (texture2d) => leafFruitIllumTexture = texture2d);
         
         Transform modelsRoot = gameObject.transform.Find("farming_plant_03");
         foreach (Transform child in modelsRoot)
@@ -53,11 +62,7 @@ public static class IceFruitTree
             if (child.name == "farming_plant_03") continue;
             
             Material fruitMaterial = child.GetComponent<MeshRenderer>().material;
-            fruitMaterial.SetTexture(ShaderPropertyID._MainTex, leafFruitMainTexture);
-            fruitMaterial.SetTexture(ShaderPropertyID._SpecTex, leafFruitSpecTexture);
-            fruitMaterial.SetTexture(ShaderPropertyID._Illum, leafFruitIllumTexture);
-            fruitMaterial.SetFloat(ShaderPropertyID._GlowStrength, 2.5f);
-            fruitMaterial.SetFloat(ShaderPropertyID._GlowStrengthNight, 2.5f);
+            IceFruit.ModifyFruitMaterial(fruitMaterial, leafFruitMainTexture, leafFruitSpecTexture, leafFruitIllumTexture);
             child.GetComponent<PickPrefab>().pickTech = IceFruit.TechType;
         }
         
@@ -71,5 +76,19 @@ public static class IceFruitTree
         LeafMaterial.SetTexture(ShaderPropertyID._SpecTex, leafFruitSpecTexture);
         LeafMaterial.SetTexture(ShaderPropertyID._Illum, leafFruitIllumTexture);
         LeafMaterial.DisableKeyword("MARMO_EMISSION");//looks better without it
+    }
+    
+    public static IEnumerator getGrowingModel(GameObject original, IOut<GameObject> model)
+    {
+        if (growingModel != null) model.Set(growingModel);
+
+        growingModel = UWE.Utils.InstantiateDeactivated(original);
+        GrowingPlant growingPlant = growingModel.GetComponent<GrowingPlant>();
+        growingPlant.plantTechType = TechType;
+        growingPlant.grownModelPrefab = new CustomGameObjectReference("IceFruitTree");//from ecc library
+
+        yield return ModifyPrefabAsync(growingModel.transform.Find("farming_plant_03").gameObject);
+        
+        model.Set(growingModel);
     }
 }

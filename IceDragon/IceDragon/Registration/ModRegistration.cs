@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.IO;
+using System.Runtime.CompilerServices;
 using IceDragon.Registration.Prefabs;
 using IceDragon.StructureLoading;
 using Nautilus.Handlers;
@@ -42,4 +44,12 @@ public static class ModRegistration
     
     private static string GetAssetBundlePath(string assetBundleFileName) => 
         Path.Combine(Path.GetDirectoryName(Plugin.Assembly.Location)!, "Assets", assetBundleFileName);
+    
+    public static IEnumerator LoadTexture(string assetName, Action<Texture2D> callback)
+    {
+        AssetBundleRequest request = Assets.LoadAssetAsync<Texture2D>(assetName);
+        yield return request;
+        if (request.asset == null) throw new Exception($"Failed to load texture: {assetName}");
+        callback(request.asset as Texture2D);
+    }
 }
