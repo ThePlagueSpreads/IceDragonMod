@@ -55,7 +55,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     protected override IEnumerator ModifyPrefab(GameObject prefab, CreatureComponents components)
     {
         var tailRoot = prefab.transform.SearchChild("Tail");
-        var tailTrailManager = new TrailManagerBuilder(components, tailRoot, 2f);
+        var tailTrailManager = new TrailManagerBuilder(components, tailRoot, 6f);
         tailTrailManager.SetTrailArrayToChildrenWithCondition(t => t.name.ToLower().StartsWith("tail"));
         tailTrailManager.Apply();
         
