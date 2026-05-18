@@ -153,6 +153,8 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var lower = lowerMeleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>();
         lower.melee = meleeAttack;
         lower.lower = true;
+
+        prefab.AddComponent<VFXSchoolFishRepulsor>();
         
         yield return null;
     }
