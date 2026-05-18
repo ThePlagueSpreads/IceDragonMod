@@ -20,6 +20,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     
     private const float SwimPriority = 0.3f;
     private const float AvoidTerrainPriority = 0.7f;
+    private const float AvoidObstaclesPriority = 0.69f;
     private const float StayAtLeashPriority = 0.79f;
     private const float FleePriority = 0.35f;
     private const float AttackLastTargetPriority = 0.75f;
@@ -35,6 +36,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             LocomotionData = new LocomotionData(12, 0.15f, 1, 0f, true),
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
+            AvoidObstaclesData = new AvoidObstaclesData(AvoidObstaclesPriority, SwimVelocity, true, 10, 10),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
             StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 90),
             FleeOnDamageData = new FleeOnDamageData(FleePriority, SwimVelocity, 400f),
