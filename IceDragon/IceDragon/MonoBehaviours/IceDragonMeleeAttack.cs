@@ -9,7 +9,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 	
 	public float biteAggressionThreshold = 0.2f;
 	public float biteInterval = 3.5f;
-	public float biteDamage = 90;
+	public float biteDamage = 100;
 	public float cyclopsDamage = 240f;
 	private float _timeLastBite;
 	public float biteAggressionDecrement = 0.4f;
