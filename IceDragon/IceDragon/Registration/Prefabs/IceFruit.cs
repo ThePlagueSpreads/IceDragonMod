@@ -71,6 +71,4 @@ public static class IceFruit
         
         model.Set(growingModel);
     }
-    
-    private static readonly int _EmissionLmNight = Shader.PropertyToID("_EmissionLMNight");
 }
