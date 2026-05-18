@@ -146,6 +146,18 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         biteSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/spine_eel/bite"));
         meleeAttack.biteSoundEmitter = biteSound;
         
+        // Kill cinematic
+        var killCinematic = prefab.AddComponent<PlayerCinematicController>();
+        killCinematic.animatedTransform = prefab.transform.SearchChild("PlayerAttachTransform");
+        killCinematic.animator = components.Animator;
+        killCinematic.animParam = string.Empty;
+        killCinematic.playerViewAnimationName = "reaper_attack";
+        killCinematic.interpolationTime = 0.25f;
+        killCinematic.interpolationTimeOut = 0.25f;
+        killCinematic.animParamReceivers = [];
+        killCinematic.interpolateAnimParam = string.Empty;
+        meleeAttack.cinematicController = killCinematic;
+        
         // upper trigger
         meleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>().melee = meleeAttack;
         
@@ -155,6 +167,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         lower.lower = true;
 
         prefab.AddComponent<VFXSchoolFishRepulsor>();
+        components.SkyApplier.dynamic = true;
         
         yield return null;
     }
