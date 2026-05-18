@@ -16,11 +16,12 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
 {
     private const float SwimVelocity = 16f;
     private const float ChaseVelocity = 22f;
-    private const float MaxVelocity = 20f;
+    private const float MaxVelocity = 18f;
     
     private const float SwimPriority = 0.3f;
     private const float AvoidTerrainPriority = 0.7f;
-    private const float StayAtLeashPriority = 0.79f;
+    private const float AvoidObstaclesPriority = 0.69f;
+    private const float StayAtLeashPriority = 0.74f;
     private const float FleePriority = 0.35f;
     private const float AttackLastTargetPriority = 0.75f;
     private const float AttackCyclopsPriority = 0.83f;
@@ -30,13 +31,14 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var template = new CreatureTemplate(() => ModRegistration.Assets.LoadAsset<GameObject>("IceDragonPrefab"),
             BehaviourType.Leviathan, EcoTargetType.Leviathan, 8_000)
         {
-            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(33, 2, 33), 3.5f, 1.2f, true),
+            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(33, 2, 33), 3.5f, 1f, true),
             SwimBehaviourData = new SwimBehaviourData(0.3f),
-            LocomotionData = new LocomotionData(13f, 0.15f, 1, 0f, true),
+            LocomotionData = new LocomotionData(12, 0.15f, 1, 0f, true),
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
+            AvoidObstaclesData = new AvoidObstaclesData(AvoidObstaclesPriority, SwimVelocity, true, 10, 10),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
-            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 140),
+            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 90),
             FleeOnDamageData = new FleeOnDamageData(FleePriority, SwimVelocity, 400f),
             EyeFOV = -0.9f,
             BioReactorCharge = 10000,
@@ -53,7 +55,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     protected override IEnumerator ModifyPrefab(GameObject prefab, CreatureComponents components)
     {
         var tailRoot = prefab.transform.SearchChild("Tail");
-        var tailTrailManager = new TrailManagerBuilder(components, tailRoot, 2f);
+        var tailTrailManager = new TrailManagerBuilder(components, tailRoot, 6f);
         tailTrailManager.SetTrailArrayToChildrenWithCondition(t => t.name.ToLower().StartsWith("tail"));
         tailTrailManager.Apply();
         
@@ -107,10 +109,10 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         attackLastTarget.evaluatePriority = AttackLastTargetPriority;
         attackLastTarget.swimVelocity = ChaseVelocity;
         attackLastTarget.aggressionThreshold = 0.6f;
-        attackLastTarget.minAttackDuration = 8;
-        attackLastTarget.maxAttackDuration = 18;
-        attackLastTarget.pauseInterval = 17;
-        attackLastTarget.rememberTargetTime = 5;
+        attackLastTarget.minAttackDuration = 10;
+        attackLastTarget.maxAttackDuration = 17;
+        attackLastTarget.pauseInterval = 13;
+        attackLastTarget.rememberTargetTime = 15;
         attackLastTarget.resetAggressionOnTime = true;
         attackLastTarget.lastTarget = components.LastTarget;
         attackLastTarget.voice = voice;
@@ -144,6 +146,18 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         biteSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/spine_eel/bite"));
         meleeAttack.biteSoundEmitter = biteSound;
         
+        // Kill cinematic
+        var killCinematic = prefab.AddComponent<PlayerCinematicController>();
+        killCinematic.animatedTransform = prefab.transform.SearchChild("PlayerAttachTransform");
+        killCinematic.animator = components.Animator;
+        killCinematic.animParam = string.Empty;
+        killCinematic.playerViewAnimationName = "reaper_attack";
+        killCinematic.interpolationTime = 0.25f;
+        killCinematic.interpolationTimeOut = 0.25f;
+        killCinematic.animParamReceivers = [];
+        killCinematic.interpolateAnimParam = string.Empty;
+        meleeAttack.cinematicController = killCinematic;
+        
         // upper trigger
         meleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>().melee = meleeAttack;
         
@@ -151,6 +165,9 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var lower = lowerMeleeTrigger.gameObject.AddComponent<IceDragonMeleeTrigger>();
         lower.melee = meleeAttack;
         lower.lower = true;
+
+        prefab.AddComponent<VFXSchoolFishRepulsor>();
+        components.SkyApplier.dynamic = true;
         
         yield return null;
     }
