@@ -8,7 +8,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 	private static readonly int LowerBiteAnimID = Animator.StringToHash("lower_bite");
 	
 	public float biteAggressionThreshold = 0.2f;
-	public float biteInterval = 3.5f;
+	public float biteInterval = 3f;
 	public float normalBiteDuration = 0.5f;
 	public float reachBiteDuration = 1.5f;
 	public float biteDamage = 100;
