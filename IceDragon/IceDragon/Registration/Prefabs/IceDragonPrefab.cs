@@ -21,7 +21,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     private const float SwimPriority = 0.3f;
     private const float AvoidTerrainPriority = 0.7f;
     private const float AvoidObstaclesPriority = 0.69f;
-    private const float StayAtLeashPriority = 0.79f;
+    private const float StayAtLeashPriority = 0.74f;
     private const float FleePriority = 0.35f;
     private const float AttackLastTargetPriority = 0.75f;
     private const float AttackCyclopsPriority = 0.83f;
@@ -109,10 +109,10 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         attackLastTarget.evaluatePriority = AttackLastTargetPriority;
         attackLastTarget.swimVelocity = ChaseVelocity;
         attackLastTarget.aggressionThreshold = 0.6f;
-        attackLastTarget.minAttackDuration = 8;
-        attackLastTarget.maxAttackDuration = 18;
-        attackLastTarget.pauseInterval = 17;
-        attackLastTarget.rememberTargetTime = 5;
+        attackLastTarget.minAttackDuration = 10;
+        attackLastTarget.maxAttackDuration = 17;
+        attackLastTarget.pauseInterval = 13;
+        attackLastTarget.rememberTargetTime = 15;
         attackLastTarget.resetAggressionOnTime = true;
         attackLastTarget.lastTarget = components.LastTarget;
         attackLastTarget.voice = voice;
