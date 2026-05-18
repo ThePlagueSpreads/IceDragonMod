@@ -31,13 +31,13 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var template = new CreatureTemplate(() => ModRegistration.Assets.LoadAsset<GameObject>("IceDragonPrefab"),
             BehaviourType.Leviathan, EcoTargetType.Leviathan, 8_000)
         {
-            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(33, 2, 33), 3.5f, 1.2f, true),
+            SwimRandomData = new SwimRandomData(SwimPriority, SwimVelocity, new Vector3(33, 2, 33), 3.5f, 1f, true),
             SwimBehaviourData = new SwimBehaviourData(0.3f),
             LocomotionData = new LocomotionData(13f, 0.15f, 1, 0f, true),
             Mass = 3500,
             AvoidTerrainData = new AvoidTerrainData(AvoidTerrainPriority, SwimVelocity, 30, 30),
             AnimateByVelocityData = new AnimateByVelocityData(MaxVelocity, 30, 3, false, 3),
-            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 140),
+            StayAtLeashData = new StayAtLeashData(StayAtLeashPriority, SwimVelocity, 90),
             FleeOnDamageData = new FleeOnDamageData(FleePriority, SwimVelocity, 400f),
             EyeFOV = -0.9f,
             BioReactorCharge = 10000,
