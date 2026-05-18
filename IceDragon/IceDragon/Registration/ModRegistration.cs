@@ -30,6 +30,8 @@ public static class ModRegistration
         Assets = assetBundleTask.assetBundle;
         
         new IceDragonPrefab().Register();
+        IceFruit.Register();
+        IceFruitTree.Register();
         IcebergBiome.Register();
         
         StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Plugin.Assembly));
