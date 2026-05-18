@@ -24,7 +24,7 @@ public static class IcebergBiome
             temperature: 1f
         );
 
-        BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyBloodKelp"));
+        BiomeHandler.RegisterBiome("Icebergs", settings, new BiomeHandler.SkyReference("SkyMountains"));
         
         BiomeHandler.AddBiomeMusic("icebergs", ModAudio.BiomeMusic);
 
