@@ -25,6 +25,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     private const float FleePriority = 0.35f;
     private const float AttackLastTargetPriority = 0.75f;
     private const float AttackCyclopsPriority = 0.83f;
+    private const float RangedAttackPriority = 0.9f;
 
     protected override CreatureTemplate CreateTemplate()
     {
@@ -59,8 +60,8 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         tailTrailManager.SetTrailArrayToChildrenWithCondition(t => t.name.ToLower().StartsWith("tail"));
         tailTrailManager.Apply();
         
-        components.Rigidbody.angularDrag = 0.05f;
-        components.WorldForces.underwaterDrag = 0.05f;
+        components.Rigidbody.angularDrag = 0.1f;
+        components.WorldForces.underwaterDrag = 0.1f;
 
         var modifier = prefab.AddComponent<DamageModifier>();
         modifier.damageType = DamageType.Cold;
