@@ -1,0 +1,89 @@
+﻿using UnityEngine;
+
+namespace IceDragon.MonoBehaviours;
+
+public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
+{
+    public GameObject fractureVfxChild;
+    public float maxLifeTime = 20;
+    public float fractureDespawnDelay = 20;
+    public float damage = 40;
+    
+    private bool _fractured;
+
+    private float _killTime;
+
+    public int managedUpdateIndex { get; set; }
+
+    public string GetProfileTag()
+    {
+        return "IceDragon.MonoBehaviours:IceProjectile";
+    }
+
+    private void Start()
+    {
+        _killTime = Time.time + maxLifeTime;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var lm = collision.gameObject.GetComponentInParent<LiveMixin>();
+        
+        if (lm.gameObject.GetComponent<IceDragonRangedAttack>() != null)
+            return;
+        
+        bool shatter = collision.impulse.magnitude > 4;
+        
+        if (lm != null && lm.IsAlive())
+        {
+            lm.TakeDamage(damage, transform.position, DamageType.Normal, gameObject);
+            shatter = true;
+        }
+        
+        if (shatter)
+            Fracture();
+    }
+
+    public void ManagedUpdate()
+    {
+        if (_fractured)
+            return;
+
+        if (Time.time > _killTime)
+        {
+            Fracture();
+        }
+    }
+
+    private void OnEnable()
+    {
+        BehaviourUpdateUtils.Register(this);
+    }
+
+    private void OnDisable()
+    {
+        BehaviourUpdateUtils.Deregister(this);
+    }
+    
+    private void Fracture()
+    {
+        if (_fractured)
+            return;
+        
+        _fractured = true;
+        
+        Destroy(gameObject);
+        
+        fractureVfxChild.transform.SetParent(null);
+        var rigidbodies = fractureVfxChild.GetComponentsInChildren<Rigidbody>(true);
+        foreach (var rb in rigidbodies)
+        {
+            var wf = rb.gameObject.AddComponent<WorldForces>();
+            wf.useRigidbody = rb;
+            wf.underwaterGravity = 4;
+        }
+        fractureVfxChild.SetActive(true);
+        
+        Destroy(fractureVfxChild, fractureDespawnDelay);
+    }
+}

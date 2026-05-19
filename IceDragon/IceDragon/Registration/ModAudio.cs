@@ -14,8 +14,11 @@ public static class ModAudio
     public static FMODAsset Roar { get; } = AudioUtils.GetFmodAsset("IceDragonRoar");
     public static FMODAsset FarRoar { get; } = AudioUtils.GetFmodAsset("IceDragonFarRoar");
     public static FMODAsset Snarl { get; } = AudioUtils.GetFmodAsset("IceDragonSnarl");
+    public static FMODAsset ShootIce { get; } = AudioUtils.GetFmodAsset("IceDragonShootIce");
     
     public static FMODAsset BiomeMusic { get; } = AudioUtils.GetFmodAsset("IceSpikesMusic");
+
+    private const string ReverbBus = "bus:/master/SFX_for_pause/PDA_pause/all/SFX/reverbsend";
 
     public static void RegisterAudio()
     {
@@ -42,10 +45,12 @@ public static class ModAudio
             "icedragon_snarl4"
         ]);
         
+        RegisterDragonSound(ShootIce, "IceDragonProjectileShoot", 8, 100, AudioUtils.BusPaths.UnderwaterCreatures);
+        
         RegisterMusic(BiomeMusic, "IceSpikes");
     }
 
-    private static void RegisterDragonSound(FMODAsset asset, string clipName, float minDistance, float maxDistance, string bus = AudioUtils.BusPaths.UnderwaterCreatures)
+    private static void RegisterDragonSound(FMODAsset asset, string clipName, float minDistance, float maxDistance, string bus = ReverbBus)
     {
         var sound = AudioUtils.CreateSound(ModRegistration.Assets.LoadAsset<AudioClip>(clipName), AudioUtils.StandardSoundModes_3D);
         sound.set3DMinMaxDistance(minDistance, maxDistance);
@@ -65,7 +70,7 @@ public static class ModAudio
                 sound.set3DMinMaxDistance(minDistance, maxDistance);
         });
         
-        var multiSoundsEvent = new FModMultiSounds(sounds.ToArray(), AudioUtils.BusPaths.UnderwaterCreatures, true);
+        var multiSoundsEvent = new FModMultiSounds(sounds.ToArray(), ReverbBus, true);
         
         CustomSoundHandler.RegisterCustomSound(asset.path, multiSoundsEvent);
     }
