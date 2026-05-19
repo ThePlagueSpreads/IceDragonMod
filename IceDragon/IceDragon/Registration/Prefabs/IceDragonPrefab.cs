@@ -25,6 +25,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
     private const float FleePriority = 0.35f;
     private const float AttackLastTargetPriority = 0.75f;
     private const float AttackCyclopsPriority = 0.83f;
+    private const float RangedAttackPriority = 0.9f;
 
     protected override CreatureTemplate CreateTemplate()
     {
@@ -59,8 +60,8 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         tailTrailManager.SetTrailArrayToChildrenWithCondition(t => t.name.ToLower().StartsWith("tail"));
         tailTrailManager.Apply();
         
-        components.Rigidbody.angularDrag = 0.05f;
-        components.WorldForces.underwaterDrag = 0.05f;
+        components.Rigidbody.angularDrag = 0.1f;
+        components.WorldForces.underwaterDrag = 0.1f;
 
         var modifier = prefab.AddComponent<DamageModifier>();
         modifier.damageType = DamageType.Cold;
@@ -168,6 +169,44 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
 
         prefab.AddComponent<VFXSchoolFishRepulsor>();
         components.SkyApplier.dynamic = true;
+        
+        var iceProjectileSource = prefab.transform.SearchChild("IceProjectileSpawn");
+        
+        // Ranged attack
+        var ranged = prefab.AddComponent<IceDragonRangedAttack>();
+        ranged.evaluatePriority = RangedAttackPriority;
+        ranged.swimVelocity = SwimVelocity;
+        ranged.swimInterval = 0.5f;
+        ranged.aggressionThreshold = 0.5f;
+        ranged.minAttackDuration = 4f;
+        ranged.maxAttackDuration = 7f;
+        ranged.pauseInterval = 14;
+        ranged.rememberTargetTime = 8;
+        ranged.lastTarget = components.LastTarget;
+        ranged.minDistanceToTarget = 7;
+        ranged.maxCastingDistance = 100;
+        ranged.lookDirectionTransform = iceProjectileSource;
+        ranged.attackTypes =
+        [
+            new RangedAttackLastTarget.RangedAttackType
+            {
+                ammoPrefab = null,
+                ammoVelocity = 0,
+                animChargeParameter = null,
+                animParameter = null,
+                attackChance = 1,
+                attackSound = null,
+                castDelay = 1,
+                chargeTime = 1,
+                castProjectileInterval = 15,
+                maxProjectiles = 1,
+                projectilesSpread = 0
+            }
+        ];
+        ranged.creature = components.Creature;
+        ranged.projectile  = ModRegistration.Assets.LoadAsset<GameObject>("IceDragonProjectile"); 
+        ranged.ammoSpawnPoint = iceProjectileSource;
+        ranged.bodyColliders = prefab.GetComponentsInChildren<Collider>(true);
         
         yield return null;
     }
