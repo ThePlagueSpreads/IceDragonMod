@@ -8,7 +8,7 @@ namespace IceDragon.MonoBehaviours;
 public class IceDragonRangedAttack : RangedAttackLastTarget
 {
     public float destroyDelay = 20f;
-    public float launchVelocity = 40;
+    public float launchVelocity = 70;
     public float shootDelay = 1.25f;
 
     public GameObject projectile;
@@ -35,7 +35,7 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
         
         instance.SetActive(true);
         IgnoreCollisions(projectile.GetComponent<Collider>());
-        rb.AddForce(ammoSpawnPoint.forward, ForceMode.VelocityChange);
+        rb.AddForce(ammoSpawnPoint.forward * launchVelocity, ForceMode.VelocityChange);
 
         Destroy(instance, destroyDelay);
     }
