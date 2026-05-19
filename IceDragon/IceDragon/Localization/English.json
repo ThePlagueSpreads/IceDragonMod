@@ -7,5 +7,7 @@
   "Tooltip_IceFruit": "Ice fruit - edible.\nWARNING: consumption may result in internal freezing!",
   
   "IceFruitTree": "Ice fruit tree",
-  "Tooltip_IceFruitTree": "A fruit-growing tree"
+  "Tooltip_IceFruitTree": "A fruit-growing tree",
+  "Ency_IceFruitTree": "Ice Fruit Tree",
+  "EncyDesc_IceFruitTree": "An arctic species within the Dendrosia family, the Ice Fruit Tree shares many physical similarities to the Lantern Tree. Scans from the specimen indicate cross pollination is no longer possible due to biological differences within the tree's fruit. It is unclear how a species of this family has entered the crater’s tropical region, with near freezing temperatures required for proper seed germination.\n\nA unique mixture of glycerin and ethanol make up the fruit’s pericarp, resisting external temperature changes over a long period. Potential cooling properties may be temporarily acquired if consumed, further study recommended.\n\nAssessment: Edible - proceed with caution.\n"
 }

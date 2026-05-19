@@ -39,7 +39,8 @@ public static class IceFruitTree
             key: "IceFruitTree",
             path: "Lifeforms/Flora/Exploitable",
             title: null,
-            desc: null
+            desc: null,
+            image: ModRegistration.Assets.LoadAsset<Texture2D>("IceFruitTreeEncyFramed")
         );
     }
 
