@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using IceDragon.Registration;
 using Nautilus.Utility;
 using Nautilus.Utility.MaterialModifiers;
 using UnityEngine;
@@ -7,8 +8,7 @@ namespace IceDragon.MonoBehaviours;
 
 public class IceDragonRangedAttack : RangedAttackLastTarget
 {
-    public float destroyDelay = 20f;
-    public float launchVelocity = 70;
+    public float launchVelocity = 120;
     public float shootDelay = 1.25f;
 
     public GameObject projectile;
@@ -17,11 +17,12 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
     public override void Cast(RangedAttackType attackType, Vector3 directionToTarget)
     {
         StartCoroutine(ShootProjectileCoroutine(directionToTarget));
+        FMODUWE.PlayOneShot(ModAudio.ShootIce, transform.position);
     }
 
-    private IEnumerator ShootProjectileCoroutine(Vector3 direction)
+    private IEnumerator ShootProjectileCoroutine(Vector3 dir)
     {
-        creature.GetAnimator().SetTrigger("attack");
+        creature.GetAnimator().SetTrigger("shoot_ice");
 
         yield return new WaitForSeconds(shootDelay);
         
@@ -32,24 +33,35 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
         var worldForces = instance.AddComponent<WorldForces>();
         worldForces.useRigidbody = rb;
         ApplyMaterialsAndLighting(instance);
+        instance.AddComponent<VFXSurface>().surfaceType = VFXSurfaceTypes.glass;
         
-        instance.SetActive(true);
         IgnoreCollisions(projectile.GetComponent<Collider>());
-        rb.AddForce(ammoSpawnPoint.forward * launchVelocity, ForceMode.VelocityChange);
-
-        Destroy(instance, destroyDelay);
+        instance.SetActive(true);
+        rb.AddForce((ammoSpawnPoint.forward + dir * 0.5f).normalized * launchVelocity, ForceMode.VelocityChange);
+        instance.AddComponent<IceProjectile>().fractureVfxChild = instance.transform.Find("Fracture").gameObject;
     }
 
     private static void ApplyMaterialsAndLighting(GameObject obj)
     {
-        MaterialUtils.ApplySNShaders(obj, 5.4f, 50, 1.1f, new FresnelModifier(0.65f),
+        var model = obj.transform.Find("IceDragonProjectile");
+        
+        MaterialUtils.ApplySNShaders(model.gameObject, 5.4f, 50, 1.1f, new FresnelModifier(0.65f),
             new DoubleSidedModifier(MaterialUtils.MaterialType.Transparent));
-        obj.EnsureComponent<SkyApplier>().renderers = obj.GetComponentsInChildren<Renderer>();
+        model.gameObject.EnsureComponent<SkyApplier>().renderers = model.GetComponents<Renderer>();
+        
+        var material = model.GetComponent<Renderer>().sharedMaterial;
+        
+        var fractureParent = obj.transform.Find("Fracture");
+        foreach (var fragment in fractureParent.GetComponentsInChildren<Renderer>())
+        {
+            fragment.sharedMaterial = material;
+        }
+        fractureParent.gameObject.AddComponent<SkyApplier>().renderers = fractureParent.GetComponentsInChildren<Renderer>(true);
     }
 
-    private void IgnoreCollisions(Collider projectile)
+    private void IgnoreCollisions(Collider projectileCollider)
     {
-        if (projectile == null)
+        if (projectileCollider == null)
         {
             Plugin.Logger.LogWarning("Projectile collider not found");
             return;
@@ -60,7 +72,7 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
             if (collider == null)
                 continue;
             
-            Physics.IgnoreCollision(collider, projectile);
+            Physics.IgnoreCollision(collider, projectileCollider);
         }
     }
 
