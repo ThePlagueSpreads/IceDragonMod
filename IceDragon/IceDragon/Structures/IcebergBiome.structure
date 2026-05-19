@@ -2006,7 +2006,7 @@
       "classId": "8e82dc63-5991-4c63-a12c-2aa39373a7cf",
       "id": "a4c4bd0e-053d-421f-8d8c-d05131266ebd",
       "position": {
-        "x": -387.4387,
+        "x": -387.438721,
         "y": -7.28690052,
         "z": 996.958862
       },
@@ -5064,20 +5064,20 @@
       "classId": "IceDragon",
       "id": "3930e03c-8cd2-4841-8475-2a691fefb54b",
       "position": {
-        "x": -349.1215,
+        "x": -349.12146,
         "y": -69.59183,
         "z": 1035.96875
       },
       "rotation": {
-        "x": 1.862645E-08,
-        "y": 0.6858704,
-        "z": -1.117587E-08,
+        "x": 1.39698351E-08,
+        "y": 0.685870349,
+        "z": -1.11758691E-08,
         "w": 0.7277238
       },
       "scale": {
-        "x": 1.0,
+        "x": 1.00000012,
         "y": 1.0,
-        "z": 1.0
+        "z": 1.00000012
       },
       "cellLevel": 2,
       "priority": 0
@@ -5220,7 +5220,7 @@
       "position": {
         "x": -304.281921,
         "y": -13.6073551,
-        "z": 1047.43762
+        "z": 1047.43774
       },
       "rotation": {
         "x": 0.0,
@@ -6054,9 +6054,9 @@
       "classId": "Kallies_GlacialSpire_2_Opaque",
       "id": "82a9cc14-7662-4260-bbad-a47f8a983b1b",
       "position": {
-        "x": -348.374268,
-        "y": -61.7035522,
-        "z": 1093.12769
+        "x": -348.364838,
+        "y": -61.7030754,
+        "z": 1093.29639
       },
       "rotation": {
         "x": 0.0,
@@ -6620,6 +6620,820 @@
         "z": 1.0
       },
       "cellLevel": 0,
+      "priority": 0
+    },
+    {
+      "classId": "Arctic_kelp_dense_02",
+      "id": "5a040d3e-3c5f-49ff-8e9d-deb3641221be",
+      "position": {
+        "x": -345.103333,
+        "y": -75.80689,
+        "z": 1004.09442
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "Arctic_kelp_young_01",
+      "id": "1c6fa95f-9405-4855-ba1a-8e5b0e971b92",
+      "position": {
+        "x": -352.644379,
+        "y": -73.1137543,
+        "z": 1002.25739
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "Arctic_kelp_dense_01",
+      "id": "f20f7ff9-5a4f-41bc-bd5b-dfb4784b2481",
+      "position": {
+        "x": -350.482971,
+        "y": -79.5495,
+        "z": 996.5414
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "0693bbdc-c105-48cf-94e8-92a1bee0e708",
+      "position": {
+        "x": -345.3197,
+        "y": -63.140152,
+        "z": 996.1314
+      },
+      "rotation": {
+        "x": -0.0199893862,
+        "y": 0.0,
+        "z": -0.6767659,
+        "w": 0.735926867
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "de6738ee-f5cf-4794-ab70-84c361160f82",
+      "position": {
+        "x": -350.520752,
+        "y": -61.30067,
+        "z": 994.898132
+      },
+      "rotation": {
+        "x": -0.656606734,
+        "y": 0.0,
+        "z": 0.07530294,
+        "w": 0.750464559
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "913db3bd-5ace-4de1-b41c-9d4a595a0d58",
+      "position": {
+        "x": -349.781677,
+        "y": -59.3874054,
+        "z": 996.557556
+      },
+      "rotation": {
+        "x": 0.110791795,
+        "y": 0.0,
+        "z": -0.07800202,
+        "w": 0.9907779
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "dfb61843-5e6d-4ed4-b3df-c21947ffff50",
+      "position": {
+        "x": -352.185455,
+        "y": -59.53442,
+        "z": 1002.45074
+      },
+      "rotation": {
+        "x": 0.4966993,
+        "y": 0.0,
+        "z": 0.00370271062,
+        "w": 0.8679148
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "527088ac-c438-4fb1-8fe4-1294390980ac",
+      "position": {
+        "x": -353.0908,
+        "y": -60.641243,
+        "z": 1002.77722
+      },
+      "rotation": {
+        "x": -0.09036605,
+        "y": 0.0,
+        "z": 0.06657395,
+        "w": 0.993681
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "a989e69b-b21d-4c61-8034-5e08963d9363",
+      "position": {
+        "x": -351.819916,
+        "y": -60.6836853,
+        "z": 1003.17877
+      },
+      "rotation": {
+        "x": 0.0797768757,
+        "y": 0.0,
+        "z": 0.004156483,
+        "w": 0.9968041
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "72be6113-1dad-4746-aa9c-0392f75f319d",
+      "position": {
+        "x": -344.712646,
+        "y": -63.4754066,
+        "z": 1005.86908
+      },
+      "rotation": {
+        "x": -0.0953143761,
+        "y": 0.0,
+        "z": 0.05738717,
+        "w": 0.9937917
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "7acd0a57-4700-47d1-a08e-8871829abd44",
+      "position": {
+        "x": -348.013275,
+        "y": -63.77774,
+        "z": 997.271
+      },
+      "rotation": {
+        "x": 0.0474887826,
+        "y": 0.0,
+        "z": 0.265926033,
+        "w": 0.962823033
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_Group2",
+      "id": "a8744138-89dc-4a6a-8778-52ed14159ac3",
+      "position": {
+        "x": -350.5706,
+        "y": -60.605732,
+        "z": 994.973633
+      },
+      "rotation": {
+        "x": -0.729738832,
+        "y": 0.0,
+        "z": 0.009909225,
+        "w": 0.683654249
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_Group2",
+      "id": "fbec0cd1-14ed-47b1-b02e-c975f8f3c427",
+      "position": {
+        "x": -352.5054,
+        "y": -63.4011,
+        "z": 994.283752
+      },
+      "rotation": {
+        "x": -0.5246175,
+        "y": 0.0,
+        "z": 0.199907169,
+        "w": 0.827534735
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.9999999
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_Group2",
+      "id": "adfb006e-5db4-4549-8888-952e39c6344e",
+      "position": {
+        "x": -350.773865,
+        "y": -58.5847168,
+        "z": 999.1701
+      },
+      "rotation": {
+        "x": -0.1586056,
+        "y": 0.0,
+        "z": -0.004173316,
+        "w": 0.987333238
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.9999998
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_Group2",
+      "id": "f860f176-7530-4883-93be-099cadccd178",
+      "position": {
+        "x": -354.0094,
+        "y": -60.81968,
+        "z": 1002.48541
+      },
+      "rotation": {
+        "x": -0.09036605,
+        "y": 0.0,
+        "z": 0.06657395,
+        "w": 0.993681
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "Arctic_kelp_dense_01",
+      "id": "99a8ce1a-5a33-4a11-a765-2db9484f2363",
+      "position": {
+        "x": -343.6874,
+        "y": -74.21709,
+        "z": 1097.39319
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "Arctic_kelp_young_01",
+      "id": "3df02b51-3596-4200-b739-352591b7ec88",
+      "position": {
+        "x": -348.724243,
+        "y": -75.34068,
+        "z": 1092.812
+      },
+      "rotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "a8509e5a-73e2-4748-8d89-052e021f979e",
+      "position": {
+        "x": -343.256866,
+        "y": -61.4444733,
+        "z": 1096.89185
+      },
+      "rotation": {
+        "x": 0.364485681,
+        "y": 0.009220537,
+        "z": -0.9308656,
+        "w": 0.0235484671
+      },
+      "scale": {
+        "x": 1.61762381,
+        "y": 1.48284388,
+        "z": 1.27103972
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "e8968201-fda0-4404-86f7-26bd8333ac65",
+      "position": {
+        "x": -349.789917,
+        "y": -66.06353,
+        "z": 1093.42236
+      },
+      "rotation": {
+        "x": 0.0698774457,
+        "y": 0.713425636,
+        "z": -0.0496625863,
+        "w": -0.695467234
+      },
+      "scale": {
+        "x": 1.34723032,
+        "y": 1.34723079,
+        "z": 1.34723032
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "Kallies_GlacialSpire_2_Opaque",
+      "id": "c1bffa70-d1f9-4621-a2fb-8550e61471a1",
+      "position": {
+        "x": -347.05542,
+        "y": -68.3006439,
+        "z": 1095.08167
+      },
+      "rotation": {
+        "x": -0.0141830724,
+        "y": -0.0003587934,
+        "z": -0.9995796,
+        "w": 0.0252867546
+      },
+      "scale": {
+        "x": 1.00701189,
+        "y": 1.48284411,
+        "z": 0.990201056
+      },
+      "cellLevel": 2,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "e5ebb8f0-3fb3-49d5-bea6-7ed0ed5dd98b",
+      "position": {
+        "x": -345.473175,
+        "y": -56.14939,
+        "z": 1091.40186
+      },
+      "rotation": {
+        "x": -0.02398248,
+        "y": 0.0,
+        "z": -0.00177904393,
+        "w": 0.9997108
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "0052b8c2-bb68-4e20-8954-9bbed208dbc5",
+      "position": {
+        "x": -343.0994,
+        "y": -56.3093071,
+        "z": 1092.46521
+      },
+      "rotation": {
+        "x": -0.09132188,
+        "y": 0.0,
+        "z": -0.101475306,
+        "w": 0.9906377
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "088a3fb4-f294-4e15-987b-f1c6b63fd1a7",
+      "position": {
+        "x": -346.8086,
+        "y": -56.34896,
+        "z": 1094.81323
+      },
+      "rotation": {
+        "x": 0.07310495,
+        "y": 0.0,
+        "z": -0.05355255,
+        "w": 0.995885432
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "e79a15c5-1d84-4e52-afa2-7702c184a4ca",
+      "position": {
+        "x": -343.961151,
+        "y": -57.90464,
+        "z": 1097.89319
+      },
+      "rotation": {
+        "x": 0.274877369,
+        "y": 0.0,
+        "z": -0.2650801,
+        "w": 0.924215853
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "967cabee-646f-4bd5-bbbd-55fda7f22810",
+      "position": {
+        "x": -348.84436,
+        "y": -50.1709557,
+        "z": 1092.68359
+      },
+      "rotation": {
+        "x": 0.0829810053,
+        "y": 0.0,
+        "z": -0.0107454816,
+        "w": 0.9964932
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "3038e0dd-7c0b-4fa0-9f68-320000da6b3f",
+      "position": {
+        "x": -353.672119,
+        "y": -56.5507965,
+        "z": 1091.09937
+      },
+      "rotation": {
+        "x": 0.219300747,
+        "y": 0.0,
+        "z": 0.0688499138,
+        "w": 0.973225
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "2ff04e40-7249-407a-b5ce-e176a3aeb61c",
+      "position": {
+        "x": -350.367859,
+        "y": -56.63494,
+        "z": 1095.84985
+      },
+      "rotation": {
+        "x": 0.1636037,
+        "y": 0.0,
+        "z": 0.453461975,
+        "w": 0.876131356
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "0dacfcbf-3404-4713-b3b8-b57a021716ba",
+      "position": {
+        "x": -348.4972,
+        "y": -58.31397,
+        "z": 1098.17847
+      },
+      "rotation": {
+        "x": 0.0217225961,
+        "y": 0.0,
+        "z": 0.197757915,
+        "w": 0.9800102
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_BlueCoralBush_Group3",
+      "id": "d70c4ce6-a081-40c8-a518-e026ce0e7df6",
+      "position": {
+        "x": -343.254425,
+        "y": -56.59973,
+        "z": 1089.49353
+      },
+      "rotation": {
+        "x": -0.5612672,
+        "y": 0.0,
+        "z": -0.08362569,
+        "w": 0.823399067
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 0.9999999
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "979fe064-d7e3-4f15-80e5-814556d069a4",
+      "position": {
+        "x": -348.265533,
+        "y": -56.50761,
+        "z": 1090.16064
+      },
+      "rotation": {
+        "x": -0.133562177,
+        "y": 0.0,
+        "z": 0.0274444371,
+        "w": 0.990660369
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "4bc1541b-e82f-495f-8e94-87876749bba9",
+      "position": {
+        "x": -349.795471,
+        "y": -56.3407555,
+        "z": 1094.70935
+      },
+      "rotation": {
+        "x": 0.07977687,
+        "y": 0.0,
+        "z": 0.00415648241,
+        "w": 0.9968041
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "70c2f030-c45a-4ded-9b9c-53407a0af87c",
+      "position": {
+        "x": -345.057953,
+        "y": -56.8456726,
+        "z": 1096.64026
+      },
+      "rotation": {
+        "x": 0.0737396851,
+        "y": 0.0,
+        "z": -0.141797736,
+        "w": 0.9871453
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "18ec1284-bcf8-4ec1-b428-8e7e8daa1a57",
+      "position": {
+        "x": -345.120331,
+        "y": -56.41312,
+        "z": 1094.02686
+      },
+      "rotation": {
+        "x": 0.127980068,
+        "y": 0.0,
+        "z": 0.164149627,
+        "w": 0.978098154
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.99999994,
+        "z": 1.0
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "02fc0ed7-303c-4d2f-b0ea-0978e9746050",
+      "position": {
+        "x": -342.6038,
+        "y": -56.57243,
+        "z": 1091.01563
+      },
+      "rotation": {
+        "x": 0.07350555,
+        "y": 0.0,
+        "z": -0.325131178,
+        "w": 0.9428079
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "27531990-006e-4803-8e42-7b7ff940ed13",
+      "position": {
+        "x": -351.874573,
+        "y": -56.09796,
+        "z": 1092.014
+      },
+      "rotation": {
+        "x": -0.00252918131,
+        "y": -0.07656955,
+        "z": 0.7108722,
+        "w": 0.699136257
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "e159ddaf-8567-44ef-a054-ccae2caeb9de",
+      "position": {
+        "x": -349.528564,
+        "y": -50.4222527,
+        "z": 1091.80884
+      },
+      "rotation": {
+        "x": -0.6691943,
+        "y": -0.08086736,
+        "z": -0.0209028684,
+        "w": 0.7383784
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 0.9999999
+      },
+      "cellLevel": 1,
+      "priority": 0
+    },
+    {
+      "classId": "KalliesReef_Glowthorn_1",
+      "id": "31e005e9-43d0-4c57-a4cd-9f120295205b",
+      "position": {
+        "x": -342.704132,
+        "y": -58.80334,
+        "z": 1097.942
+      },
+      "rotation": {
+        "x": 0.175766125,
+        "y": -0.104637019,
+        "z": -0.212940738,
+        "w": 0.9554128
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 0.9999999,
+        "z": 0.99999994
+      },
+      "cellLevel": 1,
       "priority": 0
     }
   ],
