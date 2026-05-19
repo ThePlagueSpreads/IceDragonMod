@@ -5,7 +5,7 @@ namespace IceDragon.MonoBehaviours;
 public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
 {
     public GameObject fractureVfxChild;
-    public float maxLifeTime = 20;
+    public float maxLifeTime = 10;
     public float fractureDespawnDelay = 20;
     public float damage = 40;
     
