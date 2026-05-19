@@ -16,11 +16,11 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
     
     public override void Cast(RangedAttackType attackType, Vector3 directionToTarget)
     {
-        StartCoroutine(ShootProjectileCoroutine());
+        StartCoroutine(ShootProjectileCoroutine(directionToTarget));
         FMODUWE.PlayOneShot(ModAudio.ShootIce, transform.position);
     }
 
-    private IEnumerator ShootProjectileCoroutine()
+    private IEnumerator ShootProjectileCoroutine(Vector3 dir)
     {
         creature.GetAnimator().SetTrigger("shoot_ice");
 
@@ -37,7 +37,7 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
         
         IgnoreCollisions(projectile.GetComponent<Collider>());
         instance.SetActive(true);
-        rb.AddForce(ammoSpawnPoint.forward * launchVelocity, ForceMode.VelocityChange);
+        rb.AddForce((ammoSpawnPoint.forward + dir * 0.5f).normalized * launchVelocity, ForceMode.VelocityChange);
         instance.AddComponent<IceProjectile>().fractureVfxChild = instance.transform.Find("Fracture").gameObject;
     }
 
