@@ -63,6 +63,7 @@ public class IceDragonGrab : MonoBehaviour
 		_vehicleInitialPosition = vehicle.transform.position;
 		grabSound.Play();
 		InvokeRepeating(nameof(DamageVehicle), 1f, 1f);
+		InvokeRepeating(nameof(DamagePlayer), 1f, 0.4f);
 		Invoke(nameof(ReleaseVehicle), duration);
 	}
 
@@ -94,16 +95,27 @@ public class IceDragonGrab : MonoBehaviour
 		}
 		_holdingVehicleType = VehicleType.None;
 		CancelInvoke(nameof(DamageVehicle));
+		CancelInvoke(nameof(DamagePlayer));
 		grabSound.Stop();
 	}
 
 	private void DamageVehicle()
 	{
-		if (_holdingVehicle != null)
+		if (_holdingVehicle == null) return;
+		_holdingVehicle.liveMixin.TakeDamage(damagePerSecond);
+	}
+	
+	private void DamagePlayer()
+	{
+		if (_holdingVehicle == null) return;
+		
+		var player = Player.main;
+		if (player.GetVehicle() == _holdingVehicle)
 		{
-			_holdingVehicle.liveMixin.TakeDamage(damagePerSecond);
+			player.liveMixin.TakeDamage(1, transform.position, DamageType.Cold);
 		}
 	}
+
 
 	public void OnTakeDamage(DamageInfo damageInfo)
 	{
