@@ -84,6 +84,12 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         }
         fractureVfxChild.SetActive(true);
         
+        var center = transform.position;
+        foreach (var rb in rigidbodies)
+        {
+            rb.AddExplosionForce(400, center, 15, 0);
+        }
+        
         Destroy(fractureVfxChild, fractureDespawnDelay);
     }
 }
