@@ -186,6 +186,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         ranged.minDistanceToTarget = 7;
         ranged.maxCastingDistance = 100;
         ranged.lookDirectionTransform = iceProjectileSource;
+        ranged.grab = grab;
         ranged.attackTypes =
         [
             new RangedAttackLastTarget.RangedAttackType

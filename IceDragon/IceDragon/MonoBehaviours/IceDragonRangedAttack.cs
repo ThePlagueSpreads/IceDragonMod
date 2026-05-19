@@ -8,6 +8,7 @@ namespace IceDragon.MonoBehaviours;
 
 public class IceDragonRangedAttack : RangedAttackLastTarget
 {
+    public IceDragonGrab grab;
     public float launchVelocity = 120;
     public float shootDelay = 1.25f;
 
@@ -57,6 +58,14 @@ public class IceDragonRangedAttack : RangedAttackLastTarget
             fragment.sharedMaterial = material;
         }
         fractureParent.gameObject.AddComponent<SkyApplier>().renderers = fractureParent.GetComponentsInChildren<Renderer>(true);
+    }
+
+    public override float Evaluate(Creature creature, float time)
+    {
+        if (grab.IsHoldingVehicle())
+            return 0;
+        
+        return base.Evaluate(creature, time);
     }
 
     private void IgnoreCollisions(Collider projectileCollider)
