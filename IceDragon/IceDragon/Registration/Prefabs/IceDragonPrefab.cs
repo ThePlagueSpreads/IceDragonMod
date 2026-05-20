@@ -60,9 +60,11 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         tailTrailManager.SetTrailArrayToChildrenWithCondition(t => t.name.ToLower().StartsWith("tail"));
         tailTrailManager.Apply();
         
+        // Modify physics
         components.Rigidbody.angularDrag = 0.1f;
         components.WorldForces.underwaterDrag = 0.1f;
 
+        // Immunity to cold damage
         var modifier = prefab.AddComponent<DamageModifier>();
         modifier.damageType = DamageType.Cold;
         modifier.multiplier = 0f;
@@ -75,6 +77,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
 
         var head = prefab.transform.SearchChild("Head").gameObject;
         
+        // SOUNDS
         var emitter = head.AddComponent<FMOD_CustomEmitter>();
         emitter.followParent = true;
         emitter.SetAsset(ModAudio.Roar);
@@ -117,6 +120,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         attackLastTarget.resetAggressionOnTime = true;
         attackLastTarget.lastTarget = components.LastTarget;
         attackLastTarget.voice = voice;
+        attackLastTarget.minActionCheckInterval = 2;
 
         // GRAB ATTACK
         var grab = prefab.AddComponent<IceDragonGrab>();
@@ -208,6 +212,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         ranged.projectile  = ModRegistration.Assets.LoadAsset<GameObject>("IceDragonProjectile"); 
         ranged.ammoSpawnPoint = iceProjectileSource;
         ranged.bodyColliders = prefab.GetComponentsInChildren<Collider>(true);
+        ranged.minActionCheckInterval = 3;
         
         yield return null;
     }
