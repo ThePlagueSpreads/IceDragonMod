@@ -9,6 +9,7 @@ public class IceDragonGrab : MonoBehaviour
     public FMOD_CustomLoopingEmitter grabSound;
     public float damagePerSecond = 17;
     public float duration = 9.33f;
+    public ParticleSystem coldEffect;
 
     private Vehicle _holdingVehicle;
     private VehicleType _holdingVehicleType;
@@ -65,6 +66,7 @@ public class IceDragonGrab : MonoBehaviour
 		InvokeRepeating(nameof(DamageVehicle), 1f, 1f);
 		InvokeRepeating(nameof(DamagePlayer), 1f, 0.4f);
 		Invoke(nameof(ReleaseVehicle), duration);
+		coldEffect.Play();
 	}
 
 	public bool GetCanGrabVehicle()
@@ -97,6 +99,7 @@ public class IceDragonGrab : MonoBehaviour
 		CancelInvoke(nameof(DamageVehicle));
 		CancelInvoke(nameof(DamagePlayer));
 		grabSound.Stop();
+		coldEffect.Stop();
 	}
 
 	private void DamageVehicle()

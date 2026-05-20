@@ -15,6 +15,7 @@ public static class ModAudio
     public static FMODAsset FarRoar { get; } = AudioUtils.GetFmodAsset("IceDragonFarRoar");
     public static FMODAsset Snarl { get; } = AudioUtils.GetFmodAsset("IceDragonSnarl");
     public static FMODAsset ShootIce { get; } = AudioUtils.GetFmodAsset("IceDragonShootIce");
+    public static FMODAsset IceExplode { get; } = AudioUtils.GetFmodAsset("IceDragonProjectileShoot");
     
     public static FMODAsset BiomeMusic { get; } = AudioUtils.GetFmodAsset("IceSpikesMusic");
 
@@ -46,6 +47,7 @@ public static class ModAudio
         ]);
         
         RegisterDragonSound(ShootIce, "IceDragonProjectileShoot", 8, 100, AudioUtils.BusPaths.UnderwaterCreatures);
+        RegisterDragonSound(IceExplode, "IceProjectileShatter", 5, 40, AudioUtils.BusPaths.SFX);
         
         RegisterMusic(BiomeMusic, "IceSpikes");
     }

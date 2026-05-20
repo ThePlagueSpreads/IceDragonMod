@@ -32,13 +32,14 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 
 	public bool canBiteCreature = true;
 	public bool canBitePlayer = true;
-	public bool canBiteVehicle = false; // it grabs, does not bite
+	public bool canBiteVehicle = true;
 	public bool canBiteCyclops = true;
 
 	private bool _frozen;
 	private bool _wasBiting;
 	private bool _initBiting;
 	private bool _lastBiteIsLower;
+	private bool _lastBiteIsLowerAndOnPlayer;
 
 	public int managedUpdateIndex { get; set; }
 
@@ -94,7 +95,10 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 		{
 			return false;
 		}
-		if ((!canBitePlayer || player == null) && (!canBiteCreature || target.GetComponent<Creature>() == null) && (!canBiteVehicle || target.GetComponent<Vehicle>() == null) && (!canBiteCyclops || (!isSubmarine && target.GetComponent<CyclopsDecoy>() == null)))
+		if ((!canBitePlayer || player == null)
+		    && (!canBiteCreature || target.GetComponent<Creature>() == null)
+		    && (!canBiteVehicle || target.GetComponent<Vehicle>() == null)
+		    && (!canBiteCyclops || (!isSubmarine && target.GetComponent<CyclopsDecoy>() == null)))
 		{
 			return false;
 		}
@@ -139,8 +143,6 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 			return;
 		}
 		
-		_lastBiteIsLower = lower;
-		
 		GameObject target = GetTarget(collider);
 		if (grab.IsHoldingVehicle())
 		{
@@ -148,9 +150,13 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 		}
 		
 		var player = target.GetComponent<Player>();
+		
+		_lastBiteIsLower = lower;
+		_lastBiteIsLowerAndOnPlayer = lower && player != null;
+		
 		if (player != null)
 		{
-			if (player.CanBeAttacked() && !player.cinematicModeActive)
+			if (player.CanBeAttacked() && !player.cinematicModeActive && player.GetVehicle() == null)
 			{
 				var num = DamageSystem.CalculateDamage(biteDamage, DamageType.Normal, player.gameObject);
 				if (player.GetComponent<LiveMixin>().health - num <= 0f)
@@ -184,7 +190,13 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 				if (vehicle && !vehicle.docked)
 				{
 					grab.GrabModdedVehicle(vehicle);
+					grabbedAny = true;
 				}
+			}
+
+			if (grabbedAny)
+			{
+				return;
 			}
 		}
 		
@@ -230,7 +242,7 @@ public class IceDragonMeleeAttack : MonoBehaviour, IManagedUpdateBehaviour
 		var targetLm = target.GetComponent<LiveMixin>();
 		if (targetLm != null && targetLm.IsAlive())
 		{
-			if (_lastBiteIsLower)
+			if (_lastBiteIsLowerAndOnPlayer)
 				Invoke(nameof(DelayedDamagePlayer), 0.84f);
 			else
 				targetLm.TakeDamage(GetBiteDamage(target), default, DamageType.Normal, gameObject);

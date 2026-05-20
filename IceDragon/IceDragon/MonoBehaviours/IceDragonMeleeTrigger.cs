@@ -11,7 +11,7 @@ public class IceDragonMeleeTrigger : MonoBehaviour
     {
         if (!collider.isTrigger || collider.gameObject.layer == LayerID.Useable)
         {
-            if (lower && !collider.gameObject.CompareTag("Player"))
+            if (lower && !collider.gameObject.CompareTag("Player") && collider.gameObject.layer != LayerID.Vehicle)
                 return;
             
             melee.OnTouch(collider, lower);
