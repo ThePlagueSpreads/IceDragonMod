@@ -7,6 +7,7 @@ namespace IceDragon.Registration.Prefabs;
 public static class ArcticKelpFactory
 {
     private static readonly Color ArcticKelpColor = new(6, 2, 0);
+    private static readonly Color ArcticKelpSpec= new(15, 0, 0);
 
     public static void RegisterArcticKelpVariants()
     {
@@ -34,6 +35,7 @@ public static class ArcticKelpFactory
             foreach (Material material in lod.GetComponent<MeshRenderer>().materials)
             {
                 material.SetColor(ShaderPropertyID._Color, ArcticKelpColor);
+                material.SetColor(ShaderPropertyID._SpecColor, ArcticKelpSpec);
             }
         }
     }
