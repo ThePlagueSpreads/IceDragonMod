@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using IceDragon.Registration;
+using UnityEngine;
 
 namespace IceDragon.MonoBehaviours;
 
@@ -90,6 +91,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
             rb.AddExplosionForce(400, center, 15, 0);
         }
         
+        FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
         Destroy(fractureVfxChild, fractureDespawnDelay);
     }
 }
