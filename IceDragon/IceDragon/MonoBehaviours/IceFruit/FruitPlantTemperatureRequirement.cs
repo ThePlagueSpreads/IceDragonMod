@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace IceDragon.MonoBehaviours.IceFruit;
 
 public class FruitPlantTemperatureRequirement :  HandTarget, IHandTarget
@@ -8,15 +6,21 @@ public class FruitPlantTemperatureRequirement :  HandTarget, IHandTarget
     private bool tooHotForGrowth = false;
     private float latestCheckedTemp;
     private FruitPlant fruitPlant;
-
+    
     private void Start()
     {
-        fruitPlant = GetComponent<FruitPlant>();
+        fruitPlant = GetComponent<FruitPlant>(); 
         InvokeRepeating(nameof(WaterTemperatureCheck), 0, 10);
     }
-    
+
     public void WaterTemperatureCheck()
     {
+        if (fruitPlant == null)
+        {
+            CancelInvoke(nameof(WaterTemperatureCheck)); 
+            return;
+        }
+
         float temperature = WaterTemperatureSimulation.main.GetTemperature(transform.position);
         bool enableFruitSpawn = temperature < maxFruitGrowthTemperature;
         if (fruitPlant.fruitSpawnEnabled != enableFruitSpawn)

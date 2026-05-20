@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using ECCLibrary.Data;
 using Nautilus.Assets;
@@ -39,7 +40,12 @@ public static class IceFruit
         Material fruitMaterial = gameObject.transform.Find("Fruit_03").GetComponent<MeshRenderer>().material;
         ModifyFruitMaterial(fruitMaterial, leafFruitMainTexture, leafFruitSpecTexture,  leafFruitIllumTexture);
 
-        Plantable plantable = gameObject.transform.GetComponent<Plantable>();
+        Eatable eatable = gameObject.GetComponent<Eatable>();
+        eatable.waterValue = 15;
+        eatable.foodValue = 3;
+        eatable.kDecayRate = 0.001f;//10x slower than lantern fruit
+        
+        Plantable plantable = gameObject.GetComponent<Plantable>();
         plantable.plantTechType = IceFruitTree.TechType;
         TaskResult<GameObject> instResult = new TaskResult<GameObject>();
         yield return IceFruitTree.getGrowingModel(plantable.model, instResult);

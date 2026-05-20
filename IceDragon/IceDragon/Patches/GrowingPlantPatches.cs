@@ -6,7 +6,7 @@ namespace IceDragon.Patches;
 [HarmonyPatch(typeof(GrowingPlant))]
 internal class GrowingPlantPatches
 {
-    private const float failedGrowthPlantPercent = 0.25f;
+    private const float failedGrowthPlantPercent = 0.4f;
     private const int maxGrowthTemperature = 10;
     
     [HarmonyPatch(nameof(GrowingPlant.GetProgress))]
