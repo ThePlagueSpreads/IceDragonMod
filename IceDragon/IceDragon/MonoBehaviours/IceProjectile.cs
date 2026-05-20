@@ -30,7 +30,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
     {
         var lm = collision.gameObject.GetComponentInParent<LiveMixin>();
         
-        if (lm.gameObject.GetComponent<IceDragonRangedAttack>() != null)
+        if (lm != null && lm.gameObject.GetComponent<IceDragonRangedAttack>() != null)
             return;
         
         bool shatter = collision.impulse.magnitude > 4;
