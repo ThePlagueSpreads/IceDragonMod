@@ -8,6 +8,7 @@ using Nautilus.Assets;
 using Nautilus.Extensions;
 using Nautilus.Handlers;
 using Nautilus.Utility;
+using Nautilus.Utility.MaterialModifiers;
 using UnityEngine;
 
 namespace IceDragon.Registration.Prefabs;
@@ -131,6 +132,21 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         grabSound.playOnAwake = false;
         grabSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/reaper/attack_seamoth"));
         grab.grabSound = grabSound;
+
+        var seaglideTask = CraftData.GetPrefabForTechTypeAsync(TechType.Seaglide);
+        yield return seaglideTask;
+        var seaglide = seaglideTask.GetResult();
+        var particlePrefab = seaglide.transform.Find("xSeaGlideTrail/WaterTrail_smk").gameObject;
+        var particleObj = Object.Instantiate(particlePrefab, prefab.transform.SearchChild("ColdParticleSource"));
+        particleObj.transform.localPosition = Vector3.zero;
+        particleObj.transform.localScale = Vector3.one * 0.8f;
+        var coldParticles = particleObj.GetComponent<ParticleSystem>();
+        var coldParticlesMain = coldParticles.main;
+        coldParticlesMain.playOnAwake = false;
+        coldParticlesMain.scalingMode = ParticleSystemScalingMode.Local;
+        coldParticlesMain.simulationSpace = ParticleSystemSimulationSpace.Local;
+        coldParticlesMain.maxParticles = 60;
+        grab.coldEffect = coldParticles;
         
         // MELEE ATTACK
         var meleeTrigger = prefab.transform.SearchChild("AttackTrigger");
@@ -241,7 +257,9 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
 
     protected override void ApplyMaterials(GameObject prefab)
     {
-        MaterialUtils.ApplySNShaders(prefab, 5, 5, 1f, new IceDragonMaterialModifier());
+        MaterialUtils.ApplySNShaders(prefab, 5, 5, 1f,
+            new IceDragonMaterialModifier(),
+            new IgnoreParticleSystemsModifier());
     }
     
     private static readonly AnimationCurve MaxRangeMultiplierCurve = new(new Keyframe[3]

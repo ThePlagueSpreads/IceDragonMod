@@ -8,6 +8,9 @@ public class IceDragonMaterialModifier : MaterialModifier
 {
     public override void EditMaterial(Material material, Renderer renderer, int materialIndex, MaterialUtils.MaterialType materialType)
     {
+        if (renderer is ParticleSystemRenderer)
+            return;
+        
         if (materialType == MaterialUtils.MaterialType.Transparent)
         {
             material.color = new Color(1, 1, 1);
