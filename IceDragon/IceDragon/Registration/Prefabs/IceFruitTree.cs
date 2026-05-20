@@ -1,5 +1,7 @@
 using System.Collections;
 using ECCLibrary.Data;
+using IceDragon.MonoBehaviours.IceFruit;
+using IceDragon.Patches;
 using Nautilus.Assets;
 using Nautilus.Assets.PrefabTemplates;
 using Nautilus.Handlers;
@@ -77,7 +79,9 @@ public static class IceFruitTree
         LeafMaterial.SetTexture(ShaderPropertyID._MainTex, leafFruitMainTexture);
         LeafMaterial.SetTexture(ShaderPropertyID._SpecTex, leafFruitSpecTexture);
         LeafMaterial.SetTexture(ShaderPropertyID._Illum, leafFruitIllumTexture);
-        LeafMaterial.DisableKeyword("MARMO_EMISSION");//looks better without it
+        LeafMaterial.DisableKeyword("MARMO_EMISSION");//looks better without it  
+
+        gameObject.EnsureComponent<FruitPlantTemperatureRequirement>();
     }
     
     public static IEnumerator getGrowingModel(GameObject original, IOut<GameObject> model)

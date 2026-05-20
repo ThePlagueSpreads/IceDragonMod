@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.IO;
-using System.Runtime.CompilerServices;
 using IceDragon.Registration.Prefabs;
 using IceDragon.StructureLoading;
 using Nautilus.Handlers;
