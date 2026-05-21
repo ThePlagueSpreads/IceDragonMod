@@ -203,7 +203,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         ranged.pauseInterval = 14;
         ranged.rememberTargetTime = 8;
         ranged.lastTarget = components.LastTarget;
-        ranged.minDistanceToTarget = 7;
+        ranged.minDistanceToTarget = 12;
         ranged.maxCastingDistance = 100;
         ranged.lookDirectionTransform = iceProjectileSource;
         ranged.grab = grab;
