@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using ECCLibrary;
 using ECCLibrary.Data;
 using ECCLibrary.Mono;
@@ -50,6 +51,10 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
             BehaviourLODData = new BehaviourLODData(1000, 2000, 5000),
             AggressiveToPilotingVehicleData = new AggressiveToPilotingVehicleData(40, 0.3f),
             AttackCyclopsData = new AttackCyclopsData(AttackCyclopsPriority, ChaseVelocity, 140, 0.4f, 4, 0.01f, 0.6f),
+            AggressiveWhenSeeTargetList = new List<AggressiveWhenSeeTargetData>
+            {
+                new(EcoTargetType.Leviathan, 0.5f, 100, 2)
+            }
         };
         return template;
     }
