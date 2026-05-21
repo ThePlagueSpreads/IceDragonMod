@@ -7,8 +7,11 @@ namespace IceDragon.MonoBehaviours.FreezeEffect;
 
 public class FreezeEntity : MonoBehaviour
 {
+    private const float playerAnimationSpeedMultiplier = 2.5f;
+    
     private Rigidbody rb;
     private Creature creature;
+    private Player player;
     private readonly List<GameObject> iceCubes = new();
 
     private static GameObject iceCubePrefabCached;
@@ -21,16 +24,24 @@ public class FreezeEntity : MonoBehaviour
             DestroyImmediate(this);
             return;
         }
+        player = gameObject.GetComponentInParent<Player>();
+        if (player.motorMode == Player.MotorMode.Walk)
+        {
+            DestroyImmediate(this);
+            return;
+        }
         SpawnIceCubes();
-        Invoke(nameof(UnFreeze), IceCubeFreezeAnimator.GetTotalAnimationTime());
     }
 
     private void SpawnIceCubes()
     {
-        Player player = gameObject.GetComponentInParent<Player>();
+        
         if (player != null)
         {
-            
+            player.cinematicModeActive = true;
+            StartCoroutine(SpawnPlayerIceCube());
+            Invoke(nameof(DestroyComponent), IceCubeFreezeAnimator.GetTotalAnimationTime() * (1/playerAnimationSpeedMultiplier));
+            InvokeRepeating(nameof(DamagePlayer), 0f, 0.4f);
             return;
         }
         
@@ -44,6 +55,31 @@ public class FreezeEntity : MonoBehaviour
         SendMessage("OnFreezeByStasisSphere", SendMessageOptions.DontRequireReceiver);
         creature = GetComponent<Creature>();
         creature?.GetAnimator()?.speed = 0;
+        Invoke(nameof(DestroyComponent), IceCubeFreezeAnimator.GetTotalAnimationTime());
+    }
+
+    private IEnumerator SpawnPlayerIceCube()
+    {
+        TaskResult<GameObject> result = new TaskResult<GameObject>();
+        yield return GetIceCubePrefab(result);
+        GameObject iceCube = result.value;
+        iceCube.SetActive(true);
+        iceCube.transform.SetParent(transform, false);
+        
+        const float iceCubePlayerScale = 1;
+        iceCube.transform.position = MainCamera.camera.transform.position; 
+        iceCube.transform.localPosition += new Vector3(0, 0, -0.15f);
+        iceCube.transform.Rotate(0, 90, 0, Space.Self);
+        iceCube.transform.localScale = Vector3.one * iceCubePlayerScale;
+        IceCubeFreezeAnimator iceCubeFreezeAnimator = iceCube.GetComponent<IceCubeFreezeAnimator>();
+        iceCubeFreezeAnimator.targetScale = iceCubePlayerScale;
+        iceCubeFreezeAnimator.animSpeed = playerAnimationSpeedMultiplier;
+        iceCubes.Add(iceCube);
+    }
+    
+    private void DamagePlayer()
+    {
+        player.liveMixin.TakeDamage(1, transform.position, DamageType.Cold);
     }
 
     private IEnumerator SpawnGenericIceCube(Collider collider)
@@ -108,7 +144,10 @@ public class FreezeEntity : MonoBehaviour
             DestroyImmediate(iceCube); 
         }
         creature?.GetAnimator()?.speed = 1;
+        player?.cinematicModeActive = false;
     }
 
     private void OnDestroy() => UnFreeze();
+
+    private void DestroyComponent() => DestroyImmediate(this);
 }

@@ -1,4 +1,5 @@
-﻿using IceDragon.Registration;
+﻿using IceDragon.MonoBehaviours.FreezeEffect;
+using IceDragon.Registration;
 using UnityEngine;
 
 namespace IceDragon.MonoBehaviours;
@@ -38,6 +39,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         if (lm != null && lm.IsAlive())
         {
             lm.TakeDamage(damage, transform.position, DamageType.Normal, gameObject);
+            AddIceFreeze(collision.collider);
             shatter = true;
         }
         
@@ -75,6 +77,14 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         
         Destroy(gameObject);
         
+        int hits = UWE.Utils.OverlapSphereIntoSharedBuffer(transform.position, 7);
+        for (int i = 0; i < hits; i++)
+        {
+            Collider collider = UWE.Utils.sharedColliderBuffer[i];
+            if (collider == null) continue;
+            AddIceFreeze(collider);
+        }
+        
         fractureVfxChild.transform.SetParent(null);
         var rigidbodies = fractureVfxChild.GetComponentsInChildren<Rigidbody>(true);
         foreach (var rb in rigidbodies)
@@ -93,5 +103,13 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         
         FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
         Destroy(fractureVfxChild, fractureDespawnDelay);
+    }
+
+    public void AddIceFreeze(Collider collider)
+    {
+        Rigidbody rb = collider.GetComponentInParent<Rigidbody>();
+        if (rb == null) return;
+        if (rb.GetComponentInParent<FreezeEntity>() != null) return;
+        rb.gameObject.AddComponent<FreezeEntity>();
     }
 }

@@ -4,12 +4,14 @@ namespace IceDragon.MonoBehaviours.FreezeEffect;
 
 public class IceCubeFreezeAnimator : MonoBehaviour
 {
+    public float animSpeed = 1;
+    
     private const float expandTimeLength = 0.75f;
     private const float sitTimeLength = 4;
     private const float thawTimeLength = 5;
 
     private const float fadeStartTime = 3.5f;
-    private static float fadeTotalTime = GetTotalAnimationTime() - fadeStartTime;
+    private static readonly float fadeTotalTime = GetTotalAnimationTime() - fadeStartTime;
     
     public float targetScale;
     private float animTime;
@@ -23,7 +25,7 @@ public class IceCubeFreezeAnimator : MonoBehaviour
 
     public void Update()
     {
-        animTime += Time.deltaTime;
+        animTime += Time.deltaTime * animSpeed;
         UpdateScale();
         UpdateFade();
     }
