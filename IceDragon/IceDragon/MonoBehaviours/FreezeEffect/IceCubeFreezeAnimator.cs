@@ -7,7 +7,7 @@ public class IceCubeFreezeAnimator : MonoBehaviour
     public float animSpeed = 1;
     
     private const float expandTimeLength = 0.75f;
-    private const float sitTimeLength = 4;
+    private const float sitTimeLength = 6;
     private const float thawTimeLength = 5;
 
     private const float fadeStartTime = 3.5f;
