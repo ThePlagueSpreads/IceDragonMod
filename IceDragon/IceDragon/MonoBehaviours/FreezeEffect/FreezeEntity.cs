@@ -19,17 +19,16 @@ public class FreezeEntity : MonoBehaviour
     private void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
-        if (rb == null || rb.isKinematic)
+        player = GetComponentInParent<Player>();
+        creature = GetComponentInParent<Creature>();
+        if ((rb == null || rb.isKinematic) ||
+            (player != null && player.motorMode == Player.MotorMode.Walk) ||
+            (creature != null && creature.GetComponent<IceDragonAttack>() != null))//dont allow on ice dragon
         {
             DestroyImmediate(this);
             return;
         }
-        player = gameObject.GetComponentInParent<Player>();
-        if (player != null && player.motorMode == Player.MotorMode.Walk)
-        {
-            DestroyImmediate(this);
-            return;
-        }
+        
         SpawnIceCubes();
     }
 
@@ -53,7 +52,6 @@ public class FreezeEntity : MonoBehaviour
         }
         UWE.Utils.SetIsKinematicAndUpdateInterpolation(rb, true);
         SendMessage("OnFreezeByStasisSphere", SendMessageOptions.DontRequireReceiver);
-        creature = GetComponent<Creature>();
         creature?.GetAnimator()?.speed = 0;
         Invoke(nameof(DestroyComponent), IceCubeFreezeAnimator.GetTotalAnimationTime());
     }
