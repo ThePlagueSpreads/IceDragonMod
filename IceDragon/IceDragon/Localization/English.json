@@ -9,6 +9,8 @@
   "IceFruit": "Ice fruit",
   "Tooltip_IceFruit": "Ice fruit - edible.\nWARNING: consumption may result in temporary cryogenic experiences!",
   
+  "IcebergsDiscovery": "Warning: extreme temperature drop detected.<delay=0><duration=2797>\nBiological signatures indicate a non-native leviathan-class entity is present.<delay=2859><duration=5266>\nMigration path is anomalous.<delay=8241><duration=2152>",
+  
   "IceFruitTree": "Ice fruit tree",
   "Tooltip_IceFruitTree": "A fruit-growing tree.\nCan only grow when the ambient temperature is <10°C",
   "IceFruitTreeTooHot": "Temperature too high (%temp%°C)",

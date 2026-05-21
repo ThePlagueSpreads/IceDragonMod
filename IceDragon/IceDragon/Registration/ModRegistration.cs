@@ -36,6 +36,7 @@ public static class ModRegistration
         IcebergBiome.Register();
         ArcticKelpFactory.RegisterArcticKelpVariants();
         FrozenBrineFragment.Register();
+        StoryRegistration.Register();
         
         StructureRegistrationUtils.RegisterStructures(StructureRegistrationUtils.GetStructuresFolderPath(Plugin.Assembly));
         
