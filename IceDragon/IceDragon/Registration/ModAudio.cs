@@ -12,8 +12,8 @@ namespace IceDragon.Registration;
 public static class ModAudio
 {
     public static FMODAsset Roar { get; } = AudioUtils.GetFmodAsset("IceDragonRoar");
-    public static FMODAsset FarRoar { get; } = AudioUtils.GetFmodAsset("IceDragonFarRoar");
     public static FMODAsset Snarl { get; } = AudioUtils.GetFmodAsset("IceDragonSnarl");
+    public static FMODAsset Bite { get; } = AudioUtils.GetFmodAsset("IceDragonBite");
     public static FMODAsset ShootIce { get; } = AudioUtils.GetFmodAsset("IceDragonShootIce");
     public static FMODAsset IceExplode { get; } = AudioUtils.GetFmodAsset("IceDragonProjectileShoot");
     public static FMODAsset VehicleAttack { get; } = AudioUtils.GetFmodAsset("IceDragonVehicleAttack");
@@ -25,19 +25,11 @@ public static class ModAudio
     public static void RegisterAudio()
     {
         RegisterDragonSound(Roar, 10, 400, [
-            "icedragon_roar1",
-            "icedragon_roar2",
-            "icedragon_roar3",
-            "icedragon_roar4",
-            "icedragon_roar5"
-        ]);
-        
-        RegisterDragonSound(FarRoar, 10, 400, [
-            "icedragon_far_roar1",
-            "icedragon_far_roar2",
-            "icedragon_far_roar3",
-            "icedragon_far_roar4",
-            "icedragon_far_roar5"
+            "icedragon_new_roar_1",
+            "icedragon_new_roar_2",
+            "icedragon_new_roar_3",
+            "icedragon_new_roar_4",
+            "icedragon_new_roar_5"
         ]);
         
         RegisterDragonSound(Snarl, 10, 120f, [
@@ -45,6 +37,10 @@ public static class ModAudio
             "icedragon_snarl2",
             "icedragon_snarl3",
             "icedragon_snarl4"
+        ]);
+        
+        RegisterDragonSound(Bite, 10, 40f, [
+            "icedragon_bite"
         ]);
         
         RegisterDragonSound(ShootIce, "IceDragonProjectileShoot", 8, 100, AudioUtils.BusPaths.UnderwaterCreatures);
