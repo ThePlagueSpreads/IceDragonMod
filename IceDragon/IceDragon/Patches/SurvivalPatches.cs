@@ -12,7 +12,7 @@ public class SurvivalPatches
     private static void Eat_PostFix(GameObject useObj)
     {
         if (useObj == null) return;
-        if (useObj.TryGetComponent(out Plantable plantable) && plantable.plantTechType != IceFruitTree.TechType)
+        if (useObj.TryGetComponent(out Plantable plantable) && plantable.plantTechType == IceFruitTree.TechType)
         {
             Player.main.liveMixin.TakeDamage(1, useObj.transform.position, DamageType.Cold);
         }
