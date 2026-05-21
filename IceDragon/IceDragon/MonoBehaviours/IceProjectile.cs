@@ -1,4 +1,5 @@
 ﻿using IceDragon.Registration;
+using IceDragon.Registration.Prefabs;
 using UnityEngine;
 
 namespace IceDragon.MonoBehaviours;
@@ -82,6 +83,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
             var wf = rb.gameObject.AddComponent<WorldForces>();
             wf.useRigidbody = rb;
             wf.underwaterGravity = 4;
+            rb.gameObject.EnsureComponent<FakePickupable>().overrideTechType = FrozenBrineFragment.Info.TechType;
         }
         fractureVfxChild.SetActive(true);
         
