@@ -10,50 +10,49 @@ public class FreezeEntity : MonoBehaviour
     private Rigidbody rb;
     private Creature creature;
     private readonly List<GameObject> iceCubes = new();
+
+    private static GameObject iceCubePrefabCached;
     
     private void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
-        if (rb == null || rb.isKinematic || GetComponent<FreezeEntity>() != null)
+        if (rb == null || rb.isKinematic)
         {
             DestroyImmediate(this);
             return;
         }
-        UWE.Utils.SetIsKinematicAndUpdateInterpolation(rb, true);
-        SendMessage("OnFreezeByStasisSphere", SendMessageOptions.DontRequireReceiver);
-        creature = GetComponent<Creature>();
-        creature?.GetAnimator()?.speed = 0;
         SpawnIceCubes();
         Invoke(nameof(UnFreeze), IceCubeFreezeAnimator.GetTotalAnimationTime());
     }
 
     private void SpawnIceCubes()
     {
+        Player player = gameObject.GetComponentInParent<Player>();
+        if (player != null)
+        {
+            
+            return;
+        }
+        
         Collider[] colliders = GetComponentsInChildren<Collider>();
         foreach (Collider collider in colliders)
         {
             if(collider.isTrigger || !collider.gameObject.activeInHierarchy || !collider.enabled) continue;
-            StartCoroutine(SpawnIceCube(collider));
+            StartCoroutine(SpawnGenericIceCube(collider));
         }
+        UWE.Utils.SetIsKinematicAndUpdateInterpolation(rb, true);
+        SendMessage("OnFreezeByStasisSphere", SendMessageOptions.DontRequireReceiver);
+        creature = GetComponent<Creature>();
+        creature?.GetAnimator()?.speed = 0;
     }
 
-    private IEnumerator SpawnIceCube(Collider collider)
+    private IEnumerator SpawnGenericIceCube(Collider collider)
     {
-        IPrefabRequest iceCubeRequest = PrefabDatabase.GetPrefabAsync("Kallies_GlacialRock_2_Transparent");
-        yield return iceCubeRequest;
-        if (!iceCubeRequest.TryGetPrefab(out GameObject iceCubePrefab))
-        {
-            Plugin.Logger.LogError("Failed to ice cube prefab!");
-            yield break;
-        }
-
-        GameObject iceCube = Instantiate(iceCubePrefab, collider.transform, false);
-
-        DestroyImmediate(iceCube.transform.GetChild(0).GetComponent<MeshCollider>());
-        DestroyImmediate(iceCube.GetComponent<PrefabIdentifier>());
-        DestroyImmediate(iceCube.GetComponent<LargeWorldEntity>());
-        DestroyImmediate(iceCube.GetComponent<ConstructionObstacle>());
-        IceCubeFreezeAnimator iceCubeFreezeAnimator = iceCube.EnsureComponent<IceCubeFreezeAnimator>();
+        TaskResult<GameObject> result = new TaskResult<GameObject>();
+        yield return GetIceCubePrefab(result);
+        GameObject iceCube = result.value;
+        iceCube.SetActive(true);
+        iceCube.transform.SetParent(transform, false);
         
         Renderer r = iceCube.GetComponentInChildren<Renderer>();
         Vector3 prefabSize = r.bounds.size;
@@ -65,11 +64,38 @@ public class FreezeEntity : MonoBehaviour
         iceCube.transform.position = collider.bounds.center;
         iceCube.transform.rotation = collider.transform.rotation;
         iceCube.transform.Rotate(0, 90, 0, Space.Self);
-        iceCube.transform.localScale = Vector3.one * newScale; 
+        iceCube.transform.localScale = Vector3.zero;
         
+        IceCubeFreezeAnimator iceCubeFreezeAnimator = iceCube.GetComponent<IceCubeFreezeAnimator>();
         iceCubeFreezeAnimator.targetScale = newScale;
         
         iceCubes.Add(iceCube);
+    }
+
+    private IEnumerator GetIceCubePrefab(IOut<GameObject> iceCubePrefab)
+    {
+        if (iceCubePrefabCached)
+        {
+            iceCubePrefab.Set(iceCubePrefabCached);
+            yield break;
+        }
+        
+        IPrefabRequest prefabRequest = PrefabDatabase.GetPrefabAsync("Kallies_GlacialRock_2_Transparent");
+        yield return prefabRequest;
+        if (!prefabRequest.TryGetPrefab(out GameObject originalPrefab))
+        {
+            Plugin.Logger.LogError("Failed to ice cube prefab!");
+            yield break;
+        }
+
+        GameObject iceCube = UWE.Utils.InstantiateDeactivated(originalPrefab);
+        DestroyImmediate(iceCube.transform.GetChild(0).GetComponent<MeshCollider>());
+        DestroyImmediate(iceCube.GetComponent<PrefabIdentifier>());
+        DestroyImmediate(iceCube.GetComponent<LargeWorldEntity>());
+        DestroyImmediate(iceCube.GetComponent<ConstructionObstacle>());
+        iceCube.EnsureComponent<IceCubeFreezeAnimator>();
+        iceCubePrefab.Set(iceCube);
+        iceCubePrefabCached = iceCube;
     }
 
     private void UnFreeze()
