@@ -19,3 +19,14 @@ If everything worked correctly, various files should have been copied to the fol
 
 > [!WARNING]
 > All assets in this repository belong to their respective creators and are legally protected from reuse unless otherwise specified.
+
+# Credits
+
+- alvstxr: Sound design & music
+- Beast: Programming, writing, and 2D art
+- Kallie23: Programming, design, animation & 3D art
+- NoContextCass: Modeling, texturing, and level design
+- Rupter: Rigging and animation
+- Unknown Worlds: Original Ice Dragon concept art
+
+Special thanks to Cr00L, Hilmi and Shoob 
