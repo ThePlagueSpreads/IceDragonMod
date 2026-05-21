@@ -35,6 +35,7 @@ public static class FrozenBrineFragment
         eatable.foodValue = 6;
         eatable.waterValue = -4;
         prefab.AddComponent<FrozenBrineHeal>();
+        prefab.GetComponent<Rigidbody>().isKinematic = true;
         return prefab;
     }
 }
