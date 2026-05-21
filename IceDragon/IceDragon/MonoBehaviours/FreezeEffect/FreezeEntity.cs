@@ -1,16 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UWE;
-namespace IceDragon.MonoBehaviours;
 
+namespace IceDragon.MonoBehaviours.FreezeEffect;
 
 public class FreezeEntity : MonoBehaviour
 {
-    private const float freezeTimeSeconds = 7;
-    private const float scaleDown = 4;
-    
     private Rigidbody rb;
     private Creature creature;
     private readonly List<GameObject> iceCubes = new();
@@ -18,7 +14,7 @@ public class FreezeEntity : MonoBehaviour
     private void Start()
     {
         rb = GetComponentInParent<Rigidbody>();
-        if (rb == null && !rb.isKinematic)
+        if (rb == null || rb.isKinematic || GetComponent<FreezeEntity>() != null)
         {
             DestroyImmediate(this);
             return;
@@ -28,14 +24,15 @@ public class FreezeEntity : MonoBehaviour
         creature = GetComponent<Creature>();
         creature?.GetAnimator()?.speed = 0;
         SpawnIceCubes();
+        Invoke(nameof(UnFreeze), IceCubeFreezeAnimator.GetTotalAnimationTime());
     }
 
     private void SpawnIceCubes()
     {
-        Collider[] colliders = this.GetComponentsInChildren<Collider>();
+        Collider[] colliders = GetComponentsInChildren<Collider>();
         foreach (Collider collider in colliders)
         {
-            if(collider.isTrigger || !collider.gameObject.activeInHierarchy ||  !collider.enabled) continue;
+            if(collider.isTrigger || !collider.gameObject.activeInHierarchy || !collider.enabled) continue;
             StartCoroutine(SpawnIceCube(collider));
         }
     }
@@ -50,33 +47,32 @@ public class FreezeEntity : MonoBehaviour
             yield break;
         }
 
-        float colliderScaleMultiplier = 1;
-        switch (collider)
-        {
-            case SphereCollider sphereCollider:
-                colliderScaleMultiplier = sphereCollider.radius;
-                break;
-            case CapsuleCollider capsuleCollider:
-                colliderScaleMultiplier = capsuleCollider.radius;
-                break;
-            case BoxCollider boxCollider:
-                colliderScaleMultiplier = (boxCollider.size.x + boxCollider.size.y + boxCollider.size.z) / 3;
-                break;
-        }
-
         GameObject iceCube = Instantiate(iceCubePrefab, collider.transform, false);
+
         DestroyImmediate(iceCube.transform.GetChild(0).GetComponent<MeshCollider>());
         DestroyImmediate(iceCube.GetComponent<PrefabIdentifier>());
         DestroyImmediate(iceCube.GetComponent<LargeWorldEntity>());
         DestroyImmediate(iceCube.GetComponent<ConstructionObstacle>());
+        IceCubeFreezeAnimator iceCubeFreezeAnimator = iceCube.EnsureComponent<IceCubeFreezeAnimator>();
+        
+        Renderer r = iceCube.GetComponentInChildren<Renderer>();
+        Vector3 prefabSize = r.bounds.size;
+        float prefabMax = Mathf.Max(prefabSize.x, prefabSize.y, prefabSize.z);
+        Vector3 colliderSize = collider.bounds.size;
+        float colliderMaxSize = Mathf.Max(colliderSize.x, colliderSize.y, colliderSize.z);
+        float newScale = colliderMaxSize / prefabMax;
+        
         iceCube.transform.position = collider.bounds.center;
-        iceCube.transform.localScale = (new Vector3(1/collider.transform.lossyScale.x, 1/collider.transform.lossyScale.y, 1/collider.transform.lossyScale.z) * colliderScaleMultiplier) / scaleDown;
         iceCube.transform.rotation = collider.transform.rotation;
         iceCube.transform.Rotate(0, 90, 0, Space.Self);
+        iceCube.transform.localScale = Vector3.one * newScale; 
+        
+        iceCubeFreezeAnimator.targetScale = newScale;
+        
         iceCubes.Add(iceCube);
     }
 
-    private void OnDestroy()
+    private void UnFreeze()
     {
         if (!gameObject.activeInHierarchy) return;
         UWE.Utils.SetIsKinematicAndUpdateInterpolation(rb, false);
@@ -87,4 +83,6 @@ public class FreezeEntity : MonoBehaviour
         }
         creature?.GetAnimator()?.speed = 1;
     }
+
+    private void OnDestroy() => UnFreeze();
 }
