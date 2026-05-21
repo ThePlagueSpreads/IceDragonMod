@@ -14,10 +14,10 @@ public class FreezeEntity : MonoBehaviour
     private Player player;
     private readonly List<GameObject> iceCubes = new();
 
-    private static GameObject iceCubePrefabCached;
+    //private static GameObject iceCubePrefabCached;
     
     private void Start()
-    {
+    { 
         rb = GetComponentInParent<Rigidbody>();
         player = GetComponentInParent<Player>();
         creature = GetComponentInParent<Creature>();
@@ -108,11 +108,12 @@ public class FreezeEntity : MonoBehaviour
 
     private IEnumerator GetIceCubePrefab(IOut<GameObject> iceCubePrefab)
     {
+        /*
         if (iceCubePrefabCached)
         {
             iceCubePrefab.Set(iceCubePrefabCached);
             yield break;
-        }
+        }*/
         
         IPrefabRequest prefabRequest = PrefabDatabase.GetPrefabAsync("Kallies_GlacialRock_2_Transparent");
         yield return prefabRequest;
@@ -129,7 +130,7 @@ public class FreezeEntity : MonoBehaviour
         DestroyImmediate(iceCube.GetComponent<ConstructionObstacle>());
         iceCube.EnsureComponent<IceCubeFreezeAnimator>();
         iceCubePrefab.Set(iceCube);
-        iceCubePrefabCached = iceCube;
+        //iceCubePrefabCached = iceCube;
     }
 
     private void UnFreeze()
