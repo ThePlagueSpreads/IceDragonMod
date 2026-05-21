@@ -25,7 +25,7 @@ public class FreezeEntity : MonoBehaviour
             return;
         }
         player = gameObject.GetComponentInParent<Player>();
-        if (player.motorMode == Player.MotorMode.Walk)
+        if (player != null && player.motorMode == Player.MotorMode.Walk)
         {
             DestroyImmediate(this);
             return;

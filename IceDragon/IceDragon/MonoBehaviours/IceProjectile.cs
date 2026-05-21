@@ -115,7 +115,6 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
     {
         Rigidbody rb = collider.GetComponentInParent<Rigidbody>();
         if (rb == null) return;
-        if (rb.GetComponentInParent<FreezeEntity>() != null) return;
-        rb.gameObject.AddComponent<FreezeEntity>();
+        rb.gameObject.EnsureComponent<FreezeEntity>();
     }
 }
