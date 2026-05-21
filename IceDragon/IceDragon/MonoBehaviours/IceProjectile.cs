@@ -1,5 +1,8 @@
 ﻿using IceDragon.MonoBehaviours.FreezeEffect;
 using IceDragon.Registration;
+﻿using IceDragon.Registration;
+using IceDragon.Registration.Prefabs;
+
 using UnityEngine;
 
 namespace IceDragon.MonoBehaviours;
@@ -92,6 +95,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
             var wf = rb.gameObject.AddComponent<WorldForces>();
             wf.useRigidbody = rb;
             wf.underwaterGravity = 4;
+            rb.gameObject.EnsureComponent<FakePickupable>().overrideTechType = FrozenBrineFragment.Info.TechType;
         }
         fractureVfxChild.SetActive(true);
         
@@ -100,8 +104,11 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         {
             rb.AddExplosionForce(400, center, 15, 0);
         }
-        
-        FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
+
+        if (Vector3.Distance(transform.position, MainCamera.camera.transform.position) < 40)
+        {
+            FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
+        }
         Destroy(fractureVfxChild, fractureDespawnDelay);
     }
 
