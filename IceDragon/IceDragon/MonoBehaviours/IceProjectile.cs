@@ -92,8 +92,11 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         {
             rb.AddExplosionForce(400, center, 15, 0);
         }
-        
-        FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
+
+        if (Vector3.Distance(transform.position, MainCamera.camera.transform.position) < 40)
+        {
+            FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
+        }
         Destroy(fractureVfxChild, fractureDespawnDelay);
     }
 }
