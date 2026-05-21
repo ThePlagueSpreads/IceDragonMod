@@ -1,6 +1,5 @@
 ﻿using IceDragon.MonoBehaviours.FreezeEffect;
 using IceDragon.Registration;
-﻿using IceDragon.Registration;
 using IceDragon.Registration.Prefabs;
 
 using UnityEngine;
