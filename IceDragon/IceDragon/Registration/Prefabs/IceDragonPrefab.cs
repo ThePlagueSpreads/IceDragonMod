@@ -131,11 +131,12 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         // GRAB ATTACK
         var grab = prefab.AddComponent<IceDragonGrab>();
         grab.creature = components.Creature;
-        grab.seamothAttachPoint = prefab.transform.SearchChild("VehicleAttachPoint");
-        var grabSound = head.AddComponent<FMOD_CustomLoopingEmitter>();
+        var vehicleAttachPoint = prefab.transform.SearchChild("VehicleAttachPoint");
+        grab.seamothAttachPoint = vehicleAttachPoint;
+        var grabSound = vehicleAttachPoint.gameObject.AddComponent<FMOD_CustomEmitter>();
         grabSound.followParent = true;
         grabSound.playOnAwake = false;
-        grabSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/reaper/attack_seamoth"));
+        grabSound.SetAsset(ModAudio.VehicleAttack);
         grab.grabSound = grabSound;
 
         var seaglideTask = CraftData.GetPrefabForTechTypeAsync(TechType.Seaglide);

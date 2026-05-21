@@ -6,7 +6,7 @@ public class IceDragonGrab : MonoBehaviour
 {
 	public Creature creature;
     public Transform seamothAttachPoint;
-    public FMOD_CustomLoopingEmitter grabSound;
+    public FMOD_CustomEmitter grabSound;
     public float damagePerSecond = 17;
     public float duration = 9.33f;
     public ParticleSystem coldEffect;
