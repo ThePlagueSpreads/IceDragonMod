@@ -91,7 +91,6 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var voice = prefab.AddComponent<CreatureVoice>();
         voice.emitter = emitter;
         voice.closeIdleSound = ModAudio.Roar;
-        voice.farIdleSound = ModAudio.FarRoar;
         voice.animator = components.Animator;
         voice.animatorTriggerParam = "roar";
         voice.minInterval = 20;
@@ -170,7 +169,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
         var biteSound = head.AddComponent<FMOD_CustomEmitter>();
         biteSound.followParent = true;
         biteSound.playOnAwake = false;
-        biteSound.SetAsset(AudioUtils.GetFmodAsset("event:/creature/spine_eel/bite"));
+        biteSound.SetAsset(ModAudio.Bite);
         meleeAttack.biteSoundEmitter = biteSound;
         
         // Kill cinematic
