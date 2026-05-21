@@ -60,10 +60,10 @@ public class FreezeEntity : MonoBehaviour
     {
         TaskResult<GameObject> result = new TaskResult<GameObject>();
         yield return GetIceCubePrefab(result);
-        GameObject iceCube = result.value;
+        GameObject iceCubePrefab = result.value;
+        GameObject iceCube = Instantiate(iceCubePrefab, transform, false);
         iceCube.SetActive(true);
-        iceCube.transform.SetParent(transform, false);
-        
+
         const float iceCubePlayerScale = 1;
         iceCube.transform.position = MainCamera.camera.transform.position; 
         iceCube.transform.localPosition += new Vector3(0, 0, -0.15f);
@@ -84,9 +84,9 @@ public class FreezeEntity : MonoBehaviour
     {
         TaskResult<GameObject> result = new TaskResult<GameObject>();
         yield return GetIceCubePrefab(result);
-        GameObject iceCube = result.value;
+        GameObject iceCubePrefab = result.value;
+        GameObject iceCube = Instantiate(iceCubePrefab, transform, false);
         iceCube.SetActive(true);
-        iceCube.transform.SetParent(transform, false);
         
         Renderer r = iceCube.GetComponentInChildren<Renderer>();
         Vector3 prefabSize = r.bounds.size;

@@ -41,7 +41,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         if (lm != null && lm.IsAlive())
         {
             lm.TakeDamage(damage, transform.position, DamageType.Normal, gameObject);
-            AddIceFreeze(collision.collider);
+            FrozenBrineItem.AddIceFreeze(collision.collider);
             shatter = true;
         }
         
@@ -84,7 +84,7 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
         {
             Collider collider = UWE.Utils.sharedColliderBuffer[i];
             if (collider == null) continue;
-            AddIceFreeze(collider);
+            FrozenBrineItem.AddIceFreeze(collider);
         }
         
         fractureVfxChild.transform.SetParent(null);
@@ -109,12 +109,5 @@ public class IceProjectile : MonoBehaviour, IManagedUpdateBehaviour
             FMODUWE.PlayOneShot(ModAudio.IceExplode, transform.position);
         }
         Destroy(fractureVfxChild, fractureDespawnDelay);
-    }
-
-    public void AddIceFreeze(Collider collider)
-    {
-        Rigidbody rb = collider.GetComponentInParent<Rigidbody>();
-        if (rb == null) return;
-        rb.gameObject.EnsureComponent<FreezeEntity>();
     }
 }

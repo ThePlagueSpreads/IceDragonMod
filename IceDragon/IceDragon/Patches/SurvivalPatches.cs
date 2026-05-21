@@ -16,7 +16,7 @@ public class SurvivalPatches
         {
             Player.main.liveMixin.TakeDamage(1, useObj.transform.position, DamageType.Cold);
         }
-        else if (useObj.TryGetComponent<FrozenBrineHeal>(out var heal))
+        else if (useObj.TryGetComponent<FrozenBrineItem>(out var heal))
         {
             Player.main.liveMixin.AddHealth(heal.health);
         }
