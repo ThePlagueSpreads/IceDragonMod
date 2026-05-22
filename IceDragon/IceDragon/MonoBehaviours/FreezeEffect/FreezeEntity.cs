@@ -13,8 +13,8 @@ public class FreezeEntity : MonoBehaviour
     private Creature creature;
     private Player player;
     private readonly List<GameObject> iceCubes = new();
-
-    //private static GameObject iceCubePrefabCached;
+    
+    private bool noResetOnDelete = false;
     
     private void Start()
     { 
@@ -25,6 +25,7 @@ public class FreezeEntity : MonoBehaviour
             (player != null && player.motorMode == Player.MotorMode.Walk) ||
             (creature != null && creature.GetComponent<IceDragonAttack>() != null))//dont allow on ice dragon
         {
+            noResetOnDelete = true;
             DestroyImmediate(this);
             return;
         }
@@ -34,7 +35,6 @@ public class FreezeEntity : MonoBehaviour
 
     private void SpawnIceCubes()
     {
-        
         if (player != null)
         {
             player.cinematicModeActive = true;
@@ -106,15 +106,8 @@ public class FreezeEntity : MonoBehaviour
         iceCubes.Add(iceCube);
     }
 
-    private IEnumerator GetIceCubePrefab(IOut<GameObject> iceCubePrefab)
+    private IEnumerator GetIceCubePrefab(IOut<GameObject> outPrefab)
     {
-        /*
-        if (iceCubePrefabCached)
-        {
-            iceCubePrefab.Set(iceCubePrefabCached);
-            yield break;
-        }*/
-        
         IPrefabRequest prefabRequest = PrefabDatabase.GetPrefabAsync("Kallies_GlacialRock_2_Transparent");
         yield return prefabRequest;
         if (!prefabRequest.TryGetPrefab(out GameObject originalPrefab))
@@ -129,13 +122,12 @@ public class FreezeEntity : MonoBehaviour
         DestroyImmediate(iceCube.GetComponent<LargeWorldEntity>());
         DestroyImmediate(iceCube.GetComponent<ConstructionObstacle>());
         iceCube.EnsureComponent<IceCubeFreezeAnimator>();
-        iceCubePrefab.Set(iceCube);
-        //iceCubePrefabCached = iceCube;
+        outPrefab.Set(iceCube);
     }
 
     private void UnFreeze()
     {
-        if (!gameObject.activeInHierarchy) return;
+        if (!gameObject.activeInHierarchy || noResetOnDelete) return;
         UWE.Utils.SetIsKinematicAndUpdateInterpolation(rb, false);
         SendMessage("OnUnfreezeByStasisSphere", SendMessageOptions.DontRequireReceiver);
         foreach (GameObject iceCube in iceCubes)
