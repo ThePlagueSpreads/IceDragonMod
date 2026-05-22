@@ -30,3 +30,5 @@ If everything worked correctly, various files should have been copied to the fol
 - Unknown Worlds: Original Ice Dragon concept art
 
 Special thanks to Cr00L, Hilmi and Shoob 
+
+![Ice dragon side view](https://media.githubusercontent.com/media/ThePlagueSpreads/IceDragonMod/main/IceDragonAssets/Assets/Promotional/IceDragonRender_Side.png)
