@@ -6,6 +6,8 @@ This is the official repository for the Ice Dragon Leviathan mod for Subnautica 
 The latest release can be found in the [Releases](https://github.com/ThePlagueSpreads/IceDragonMod/releases) page or [on Nexus Mods](https://www.nexusmods.com/subnautica/mods/3550).
 
 # Building the Mod
+The instructions are designed for people who wish to contribute.
+
 1. Clone or download the repository locally
 2. Copy `IceDragon/TargetDirectories.targets.template`, rename it to `TargetDirectories.targets`, and ensure your game directory is correct.
 3. Open the IceDragonAssets folder in Unity 2019.4.36f1 (or the security hotfix version).
