@@ -25,7 +25,7 @@ If everything worked correctly, various files should have been copied to the fol
 # Credits
 
 - alvstxr: Sound design & music
-- Beast: Programming, writing, and 2D art
+- Jbeast: Programming, writing, and 2D art
 - Kallie23: Programming, design, animation & 3D art
 - NoContextCass: Modeling, texturing, and level design
 - Rupter: Rigging and animation
