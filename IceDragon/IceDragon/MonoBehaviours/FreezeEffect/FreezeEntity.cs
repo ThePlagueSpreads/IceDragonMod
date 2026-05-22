@@ -21,7 +21,7 @@ public class FreezeEntity : MonoBehaviour
         rb = GetComponentInParent<Rigidbody>();
         player = GetComponentInParent<Player>();
         creature = GetComponentInParent<Creature>();
-        if ((rb == null || rb.isKinematic) ||
+        if ((rb == null || rb.isKinematic || rb.GetComponentInChildren<VFXSchoolFish>() != null) ||
             (player != null && player.motorMode == Player.MotorMode.Walk) ||
             (creature != null && creature.GetComponent<IceDragonAttack>() != null))//dont allow on ice dragon
         {
