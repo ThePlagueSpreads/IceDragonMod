@@ -31,6 +31,9 @@ public class IceDragonMaterialModifier : MaterialModifier
             material.SetFloat("_GlowStrengthNight", 0);
             material.SetFloat("_EmissionLM", 0.005f);
             material.SetFloat("_EmissionLMNight", 0.005f);
+            material.SetFloat("_Fresnel", 0);
+            material.color = new Color(1.1f, 1.1f, 1.1f);
+            material.SetColor("_SpecColor", new Color(1.1f, 1.1f, 1.1f));
         }
 
         if (material.name.Contains("Pupil"))
