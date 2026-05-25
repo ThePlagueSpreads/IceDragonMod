@@ -262,7 +262,7 @@ public class IceDragonPrefab() : CreatureAsset(PrefabInfo.WithTechType("IceDrago
 
     protected override void ApplyMaterials(GameObject prefab)
     {
-        MaterialUtils.ApplySNShaders(prefab, 5, 5, 1f,
+        MaterialUtils.ApplySNShaders(prefab, 5.2f, 5, 1f,
             new IceDragonMaterialModifier(),
             new IgnoreParticleSystemsModifier());
     }
